@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Introduction</title>
+	<section>
+		<title>What Is A Namespace?</title>
+		<paragraph>A namespace is a special element of XML which allows elements in the XML document to be unique to one another.  If a document were to contain two "table" elements but each element had a different meaning, a namespace could be used for one or both of the elements to prevent conflicts between the two.</paragraph>
+		<paragraph>A namespace consists of two parts; the namespace prefix and the actual namespace URI.  These two parts are described below.  Additionally, more information about XML namespaces in general may be found at the following websites:</paragraph>
+		<link>http://en.wikipedia.org/wiki/Namespaces</link>
+		<link>http://www.w3schools.com/xml/xml_namespaces.asp</link>
+	</section>
+	<section>
+		<title>The Namespace Prefix</title>
+		<paragraph>The namespace prefix is the text used to uniquely identify each element of the XML associated with the namespace.  This prefix is generally short and does not contain any special characters.  Namespace prefixes must be all lower-case.</paragraph>
+		<paragraph>To add a namespace to an element, the namespace prefix is placed in front of the element name and a colon ":" is used to separate the two.</paragraph>
+		<paragraph>This must be done to both the opening and closing tag for the element.  In the case of a self-closing tag, the element name only appears once, so it is only prefixed once.</paragraph>
+		<example title="An element with and without a namespace">
+ <![CDATA[<table name="mytable">My Data</table>
+
+ <mynamespace:table name="mytable">My Data</mynamespace:table>]]>
+		</example>
+	</section>
+	<section>
+		<title>The Namespace URI</title>
+		<paragraph>The namespace URI (also known as the namespace URL) is simply a string of text that is unique and somewhat descriptive of the namespace's purpose or content.  The URI (or URL) specified in a namespace does not have to be a "real" URI, it does not have to point to a real website or real document at all.</paragraph>
+		<paragraph>Below is an example of the correct way to declare a namespace within a 'plugin' element.  In this example, "mynamespace" is the namespace prefix and "http://www.namespace.com/mynamespace/" is the namespace URI.</paragraph>
+		<example title="Plugin namespace declaration">
+			<![CDATA[<plugin xmlns:mynamespace="http://www.namespace.com/mynamespace/">]]>
+		</example>
+	</section>
+	<section>
+		<title>Namespace References</title>
+		<paragraph>Officially, the namespace prefix is supposed to be meaningless.  In the context of MTS, however, the namespace prefix is actually used to reference a namespace, hence the need for unique names.</paragraph>
+		<paragraph>Any time a namespace is referenced, either through $mts.plugin() or $mts.resource(), the namespace prefix is used.</paragraph>
+	</section>
+	<section>
+		<title>Registered Namespaces</title>
+		<paragraph>It is strongly encouraged to register your plugin's namespace.  By doing so, you ensure that your plugin's namespace will be unique to other registered plugins.  When you register a namespace, your namespace URI automatically becomes "http://www.mircthemes.com/plugins/mynamespace", where "mynamespace" is the name of your namespace prefix.</paragraph>
+		<paragraph>Because your namespace URI actually points to a website, an MTS 2.0 engine can connect to that website and download information about your plugin, which is stored when you register.  This provides you with a large advantage over a non-registered namespace; when an engine detects support for your plugin in a theme and the end-user does not have your plugin installed, the engine can retrieve the information stored at the mircthemes.com website and inform the user of the purpose of your plugin and a URL where it may be downloaded.</paragraph>
+		<paragraph>Plugin support in an MTS 2.0 engine is optional.  An engine author may also decide which plugins he or she wishes to support.  By registering your namespace, you increase the chances that your plugin will be supported.  Non-registered namespaces may be prone to errors or conflicts with other plugins, which creates a problem for engine developers.</paragraph>
+		<paragraph>To learn more about the registration service and to register your plugin's namespace, visit the link below.</paragraph>
+		<link>http://www.mircthemes.com/plugins/</link>
+	</section>
+</page>

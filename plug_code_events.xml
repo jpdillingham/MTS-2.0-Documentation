@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Events</title>
+	<section>
+		<title>Overview</title>
+		<paragraph>To facilitate the application of plugin settings, the following events will be sent by the MTS 2.0 engine as they occur.  Additional events may be monitored directly through regular mIRC events, such as ON CONNECT, ON JOIN, etc.</paragraph>
+		<paragraph>These events do not have any arguments and are sent with mIRC's /signal command.  They may be "caught" with the ON SIGNAL event.</paragraph>
+	</section>
+	<section>
+		<title>Theme Load (mts.load)</title>
+		<paragraph>This event is triggered when a theme is first loaded and when the engine itself is loaded or otherwise enabled.  The plugin should use the $mts.plugin() identifier to check for support and, if present, should apply any included settings when this event is triggered.</paragraph>
+		<paragraph>When one theme is changed for another, the mts.unload event is first sent, followed by the mts.load event.</paragraph>
+		<code title="Usage example">on 1:signal:mts.load:{ myplugin.applysettings }</code>
+	</section>
+	<section>
+		<title>Theme Unload (mts.unload)</title>
+		<paragraph>This event is triggered when a theme is unloaded or when the engine itself is unloaded or otherwise disabled or stopped.  Upon recieving this event, the plugin should "undo" any settings, unset variables, close windows, etc.</paragraph>
+		<paragraph>When one theme is changed for another, this event will be triggered, followed by the mts.load event.</paragraph>
+		<code title="Usage example">on 1:signal:mts.unload:{ myplugin.unload }</code>
+	</section>
+	<section>
+		<title>Scheme Change (mts.schemechange)</title>
+		<paragraph>This event is triggered when a scheme is changed without switching themes.  The plugin should check to ensure support still exists within the new scheme and apply or undo any alterations accordingly.</paragraph>
+		<code title="Usage example">on 1:signal:mts.schemechange:{
+  myplugin.unload
+  myplugin.applysettings
+}</code>
+	</section>
+	<section>
+		<title>Option Changes (mts.optionchange)</title>
+		<paragraph>This event is triggered when options are changed via embedded configuration options.  This does not apply to theme-handled options as the engine has no way of knowing the values of these options.</paragraph>
+		<paragraph>Upon recieving this event the plugin should check for any values that have changed and apply the new settings accordingly.</paragraph>
+		<code title="Usage example">on 1:signal:mts.optionchange:{
+  if ($mts.plugin(myplugin,images/@background) != $myplugin.background) {
+    myplugin.setbackground $v1
+  }
+}</code>
+</section>
+</page>

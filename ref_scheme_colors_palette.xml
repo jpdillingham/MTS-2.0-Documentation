@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;palette&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for RGB color settings.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="list" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">A space delimited list of RGB values in the 'R,G,B R,G,B' or 'RGB,RGB' format. The values should be in order (the first value would be the new RGB for the color index 0, and so on.)</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		
+		<paragraph>The values specified in the 'list' attribute will be in order, from 0 to 15, and should be applied accordingly.</paragraph>
+		<paragraph>In the event of a missing or incomplete list, the engine should apply the "mIRC Classic" (default) colors.</paragraph>
+		<paragraph>Individual 'rgb' children elements of this element override their respective positions in the list.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Using a tokenized list"><![CDATA[<palette list="0,0,0 255,0,0 ... 128,128,128"> ]]></example>
+		<example title="Nesting syntax">
+ <![CDATA[<mts>
+	<scheme>
+		<colors>
+			<palette>
+				<rgb .../>
+			</palette>
+		</colors>
+	</scheme>
+ </mts> ]]>
+		</example>
+	</section>
+</page>

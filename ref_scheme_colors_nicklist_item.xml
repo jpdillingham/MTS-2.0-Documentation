@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;item&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines nicklist colors.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="color" required="Yes" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The mIRC color index for the item.</attribute>
+			<attribute name="mode" required="No" evaluated="No" defaultvalue="any" datatype="Mixed">The mode prefix(es) for the item.  For users with no mode (regular users), omit this attribute or specify the keyword "none".  For users with any mode, specify an asterisk or the keyword "any".</attribute>
+			<attribute name="list" required="No" evaluated="No" defaultvalue="N\A" datatype="Keyword">The list a user belongs to.</attribute>
+			<attribute name="idle" required="No" evaluated="No" defaultvalue="N\A" datatype="Numeric">The amount of idle for the item.</attribute>
+			<attribute name="nick" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Text">A nickname or hostname to match when coloring the item, may be used to identify services (X, etc.) or the user of the theme ($me).</attribute>
+			<attribute name="method" required="No" evaluated="Yes" defaultvalue="0" datatype="Keyword">The highlight method to be used for the item.</attribute>
+			<attribute name="levels" required="No" evaluated="No" defaultvalue="N\A" datatype="Text">The userlevel(s) for a matching nick, separated by commas.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="mode">
+			<keyword name="any">Indicates that highlighting should be applied to both the message and listbox</keyword>
+			<keyword name="*">Same as the "any" keyword</keyword>
+			<keyword name="none">Indicates that highlighting should be applied to the message only</keyword>
+		</keywords>
+		<keywords attribute="list">
+			<keyword name="ignore">Indicates that the matched nickname is on the ignore list</keyword>
+			<keyword name="op">Indicates that the matched nickname is on the auto-op list</keyword>
+			<keyword name="voice">Indicates that the matched nickname is on the auto-voice list</keyword>
+			<keyword name="protect">Indicates that the matched nickname is on the protect list</keyword>
+			<keyword name="notify">Indicates that the matched nickname is on the notify list</keyword>
+		</keywords>
+		<keywords attribute="method">
+			<keyword name="0">Indicates that highlighting should be applied to both the message and listbox</keyword>
+			<keyword name="1">Indicates that highlighting should be applied to the message only</keyword>
+			<keyword name="2">Indicates that highlighting should be applied to the listbox only</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The engine should add these entries using the /cnick command.  Further processing is handled by mIRC.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Channel ops that have been idle for 300 seconds">
+ <![CDATA[<item mode="@" method="1" idle="300" color="5" />]]>
+		</example>
+		<example title="Default nicklist color">
+ <![CDATA[<item color="5" />]]>
+		</example>
+		<example title="Regular users (no channel mode) that are being ignored">
+ <![CDATA[<item list="ignore" color="14" />]]>
+		</example>
+		<example title="Channel ops that also have been voiced (+v)">
+ <![CDATA[<item mode="@+" color="3" />]]>
+		</example>
+	</section>
+</page>

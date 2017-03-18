@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;lusers&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines output for the lusers information.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="color" required="No" evaluated="Yes" defaultvalue="normal text color" datatype="Numeric">The color to be used when the engine /echos the data.</attribute>
+			<attribute name="indent" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The amount of indent the engine should use when the data is wrapped.</attribute>
+			<attribute name="target" required="No" evaluated="Yes" defaultvalue="status" datatype="Mixed">The window in which the data should be displayed.  May be a window name or a keyword (see below) and multiple keywords may be used.</attribute>
+			<attribute name="sound" required="No" evaluated="No" defaultvalue="N\A" datatype="Resource">The name of the resource sound file to be played when the raw is triggered.</attribute>
+			<attribute name="halted" required="No" evaluated="Yes" defaultvalue="false" datatype="Boolean">Whether or not the engine should halt output for this raw.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="target">
+			<keyword name="active">Sends output to the active window, regardless of which connection triggered the output</keyword>
+			<keyword name="activechannels">Sends output to all channels on the active connection</keyword>
+			<keyword name="localchannels">Sends output to all channels on the connection where the output was triggered</keyword>
+			<keyword name="globalchannels">Sends output to all channels on all connections</keyword>
+			<keyword name="activestatus">Sends output to the status window of the active connection</keyword>
+			<keyword name="localstatus">Sends output to the status window of the connection that triggered the output</keyword>
+			<keyword name="globalstatus">Sends output to all status windows</keyword>
+			<keyword name="allactive">Sends output to the status window and all channels of the active connection</keyword>
+			<keyword name="alllocal">Sends output to the status window and all channels on the connection that triggered the output</keyword>
+			<keyword name="allglobal">Sends output to all channel and status windows</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Text, mIRC control codes and identifiers and constant keywords.</paragraph>
+		<paragraph>Multiple line entries are supported and will be displayed as individual lines.</paragraph>
+		<paragraph>Within this tag $mts.lusers() will return information passed in the raw events associated with the lusers report.  A list of arguments and returned data appears below.</paragraph>
+		<identifiers>
+			<identifier name="$mts.lusers(users)">Returns the number of users on the local server</identifier>
+			<identifier name="$mts.lusers(invisible)">Returns the number of invisible users on the local server</identifier>
+			<identifier name="$mts.lusers(servers)">Returns the number of servers on the network</identifier>
+			<identifier name="$mts.lusers(operators)">Returns the number of IRCops on the local server</identifier>
+			<identifier name="$mts.lusers(channels)">Returns the total number of channels on the local server</identifier>
+			<identifier name="$mts.lusers(localusers)">Returns the number of local users</identifier>
+			<identifier name="$mts.lusers(localusers).max">Returns the highest number of local users</identifier>
+			<identifier name="$mts.lusers(globalusers)">Returns the number of global users</identifier>
+			<identifier name="$mts.lusers(globalusers).max">Returns the highest number of global users</identifier>
+			<identifier name="$mts.lusers(clients)">Returns the number of clients on the network</identifier>
+			<identifier name="$mts.lusers(localservers)">Returns the number of local servers</identifier>
+		</identifiers>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The engine should store the data associated with the raws involved with the output from the /lusers command and make it available to the theme through the $mts.lusers() identifier.</paragraph>
+		<paragraph>The color, indent and target attributes should be evaluated and inserted into the /echo command in the proper place. When a keyword is used in the target attribute, the engine should process the keyword as specified (see the "Keywords" section for the target attribute).</paragraph>
+		<paragraph>Multiple lines should be displayed individually, each line retaining the settings specified in the color, indent and target attributes.</paragraph>
+		<paragraph>If the halted attribute is set to true, the engine should evaluate the text contained within the raw but NOT display it.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<lusers color="14" target="localstatus">
+	[ /lusers on $server ..................................
+	[ users: $mts.lusers(users)
+	[ invis: $mts.lusers(invisible)
+	[ servers: $mts.lusers(servers)
+	[ channels: $mts.lusers(channels) ( $+ avg. $calc($mts.lusers(channels) / $mts.lusers(servers)) per server)
+	[ global: $mts.lusers(globalusers) (max: $mts.lusers(globalusers).max $+ )
+	[ end of /lusers report ..............................................
+ </lusers>]]>
+		</example>
+	</section>
+</page>

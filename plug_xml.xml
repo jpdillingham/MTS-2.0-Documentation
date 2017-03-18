@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>XML</title>
+	<section>
+		<title>Overview</title>
+		<paragraph>As the author of a plugin, you are responsible for designing and documenting the XML used with your plugin.  The actual restrictions on the XML you may use are minimal, however you should ensure that MTS' implementation of Xpath is capable of correctly storing and returning the data.</paragraph>
+		<paragraph>Because theme authors are the ones who will actually implement your XML, it is very important that it is easy to read, the tags are logically named and structured and that the themer has clear instructions as to the purpose and function of each element.</paragraph>
+	</section>
+	<section>
+		<title>The Plugin Element</title>
+		<paragraph>The XML for your plugin must be contained within its own 'plugin' element.  This element must contain two attributes, 'xmlns:??' and 'version'.  In the case of 'xmlns:??', the question marks "??" must be replaced with the namespace for your plugin.  The 'xmlns:??' attribute should have a value that corresponds to a unique URL containing information about the plugin and the 'version' attribute should contain the version of the plugin that is supported by the XML.</paragraph>
+		<paragraph>The syntax used for the declaration of the 'plugin' element is as follows, where "myplugin" is the namespace of the plugin and "http://url/to/myplugin" is the namespace's URL.</paragraph>
+		<paragraph>For more information about namespaces, read the "Namespaces" section.</paragraph>
+		<example title="Declaration example">
+ <![CDATA[<plugin xmlns:myplugin="http://url/to/myplugin" version="1.0"> ... </plugin>]]>
+		</example>
+	</section>
+	<section>
+		<title>Plugin XML</title>
+		<paragraph>Each and every element contained within the 'plugin' element needs to be prefixed with the name of the plugin's namespace, followed by a colon ":".  This done to avoid conflicts between plugins and to help the MTS engine determine which XML belongs to a theme and which belongs to a plugin.</paragraph>
+		<example title="Namespace prefix example">
+ <![CDATA[<myplugin:background style="center">background.jpg</myplugin:background>]]>
+		</example>
+	</section>
+	<section>
+		<title>Resources</title>
+		<paragraph>Both linked and embedded resources are allowed within your plugin's XML.  Any 'resource' elements need to be prefixed with the plugin's namespace, as demonstrated above.</paragraph>
+	</section>
+</page>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>About This Document</title>
+	<section>
+		<title>Other Versions Of This Document</title>
+		<paragraph>Other versions of this document, including translations and both online and offline (downloadable archives) versions, may be found at the following website.  Check this website often to ensure that your theme, engine or plugin is fully compliant with the latest version of MTS.</paragraph>
+		<link>http://www.mircthemes.com</link>
+	</section>
+	<section>
+		<title>Document Maintenance</title>
+		<paragraph>This document will be maintained by a member of the "MTS Working Group" and updated whenever enough changes are made to warrant a public revision.</paragraph>
+		<paragraph>All changes, additions and deletions will be recorded in the "Change Log" section of this document and major changes will be summarized under the "Summary" heading.</paragraph>
+	</section>
+	<section>
+		<title>How To Disable The "Active Content" Warning In Internet Explorer 6.0 (SP2)</title>
+		<paragraph>Internet Explorer prevents files containing JavaScript from executing on your local machine by default.</paragraph>
+		<paragraph>To disable this behavior, click on the "Tools" menu in Internet Explorer and choose "Internet Options..." from the resulting menu.  When the "Internet Options" dialog opens, click on the "Advanced" tab and scroll through the list of settings to find the "Security" heading.  Within this setting, locate the checkbox with the text "Allow active content to run in files on My Computer".  Click the checkbox to enable it and click "OK" to apply the setting.</paragraph>
+		<paragraph>This document should now display without warnings.</paragraph>
+	</section>
+	<section>
+		<title>Browser Compatibility</title>
+		<paragraph>This document was designed for use with Internet Explorer 6.0 (SP2) and Mozilla Firefox 1.0.</paragraph> 
+	</section>
+</page>

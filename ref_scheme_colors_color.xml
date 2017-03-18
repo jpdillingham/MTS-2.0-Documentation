@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;color&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is defines various mIRC colors.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Keyword">The name of the color, as used in mIRC's colors dialog</attribute>
+			<attribute name="index" required="Yes" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The index of the desired color</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="name">
+			<keyword name="background">The color used for window backgrounds</keyword>
+			<keyword name="action text">The color used to display actions (/me, /describe)</keyword>
+			<keyword name="ctcp text">The color used to display CTCP text</keyword>
+			<keyword name="highlight text">The color used to display highlighted text</keyword>
+			<keyword name="info text">The color used to display information</keyword>
+			<keyword name="info2 text">A second information color</keyword>
+			<keyword name="invite text">The color used to display channel invitations</keyword>
+			<keyword name="join text">The color used to display join events</keyword>
+			<keyword name="kick text">The color used to display kick events</keyword>
+			<keyword name="mode text">The color used to display mode changes</keyword>
+			<keyword name="nick text">The color used to display nickname changes</keyword>
+			<keyword name="normal text">The normal text color</keyword>
+			<keyword name="notice text">The color used to display notice messages</keyword>
+			<keyword name="notify text">The color used to display notify and un notify messages</keyword>
+			<keyword name="other text">The color used for 'other' purposes, like identd and dns</keyword>
+			<keyword name="own text">The color used to display user-input messages</keyword>
+			<keyword name="part text">The color used to display part events</keyword>
+			<keyword name="quit text">The color used to display quit events</keyword>
+			<keyword name="topic text">The color used to display channel topic changes</keyword>
+			<keyword name="wallops text">The color used to display server wallops notices</keyword>
+			<keyword name="whois text">The color used to display whois information</keyword>
+			<keyword name="editbox">The background color used for the editbox</keyword>
+			<keyword name="editbox text">The color used to display editbox text</keyword>
+			<keyword name="listbox">The background color used for the listbox (nicklist)</keyword>
+			<keyword name="listbox text">The default color used in the nicklist</keyword>
+			<keyword name="inactive">The color used in the editbox of an inactive window</keyword>
+			<keyword name="gray text">The color used for grayed nicklist entries</keyword>
+			<keyword name="title text">It is unknown what this color does</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>If a list has been specified in the parent 'colors' element, the engine should first apply that list.  Any additional declarations in this section should be applied afterward.</paragraph>
+		<paragraph>If no definition for a color has been specified individually or as part of a list, the engine should revert the color back to "mIRC Classic" (the default color).</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<color name="join text" index="13" />]]>
+		</example>
+	</section>
+</page>

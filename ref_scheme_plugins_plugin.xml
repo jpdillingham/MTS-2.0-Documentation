@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;plugin&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines the start of a theme plugin's XML.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="xmlns:???" required="Yes" evaluated="No" defaultvalue="N\A" datatype="URI">This attribute declares the namespace for the plugin.  The attribute itself must contain this name, so if a namespace "scrollbar" were being used, "???" in the attribute name would be replaced with "scrollbar", giving us "xmlns:scrollbar" as the attribute name.  The data for this attribute must be a URL pointing to the homepage or download page for the plugin being used.</attribute>
+			<attribute name="version" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Numeric">The version of the plugin that the theme supports.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>The contents of this element are unique to each plugin.  See the documentation of the plugin in question.</paragraph>
+		<paragraph>Embedded and linked resources are allowed within this element.  However, the elements must be prefixed with the namespace name.  See the documentation for resources for more information.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The XML contained within this tag must be parsed and stored by the engine and made available for retrieval through the identifier $mts.plugin.</paragraph>
+		<paragraph>Resources defined within this element must be treated as normal resources but stored in such a way to avoid naming conflicts; the resources defined here need only have names unique to the other resources for the current plugin.  To return the path to the resources, the $mts.resource() identifier is used with an additional parameter.  The syntax is:</paragraph>
+		<paragraph>$mts.resource([plugin_namespace],resource_name)</paragraph>
+		<paragraph>You can read more about the behavior of $mts.resource in the "Engine Requirements" section of this document.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<plugin xmlns:myplugin="http://plugin.com/myplugin" version="1.0"> ... </plugin>]]>
+		</example>
+		<example title="Declaration with a linked resource">
+ <![CDATA[<plugin xmlns:guiplug="http://plugin.com/guiplug" version="1.5">
+ 	<guiplug:resource name="button_pressed" type="image" file="guiplug\images\button_pressed.bmp"/>
+	...
+ </plugin>]]>
+		</example>
+	</section>
+</page>

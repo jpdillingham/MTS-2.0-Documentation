@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Inheritance</title>
+	<section>
+		<title>What is Inheritance?</title>
+		<paragraph>MTS 2.0 allows schemes to inherit from one another.</paragraph>
+		<paragraph>When a scheme inherits from another scheme, the inhereting scheme is actually extending the inherited scheme (also known as a base scheme). The inheriting scheme can add new information to the base scheme or overwrite old information already present in the base scheme.</paragraph>
+		<paragraph>Below are some links that may be helpful to further your understanding of the concept of inheritance.  Some of the terms used in the articles do not apply to MTS, however the basic concept is the same.</paragraph>
+		<link>http://en.wikipedia.org/wiki/Inheritance_(computer_science)</link>
+		<link>http://java.sun.com/docs/books/tutorial/java/concepts/inheritance.html</link>
+	</section>
+	<section>
+		<title>Usage Examples For Inheritance</title>
+		<paragraph>Inheritance can be useful when themers want to have several color-versions of the same general style. The themer can make a base scheme, with things like font settings, and command settings, and the schemes inheriting from it can add the color information specific to that scheme.</paragraph>
+		<paragraph>It is also productive to use inheritance when you only want to make a few minor changes to a current scheme, and present those changes as a totally different scheme. Without inheritance, themers would have to make a new copy of the old scheme and make the changes on the new copy. This is a wasteful situation, where two copies of almost the same thing are present!</paragraph>
+	</section>
+	<section>
+		<title>Basic Inheritance</title>
+		<paragraph>Inheritance can be issued by specifying then name of the scheme you wish to inherit from in the 'inherits' attribute of the 'scheme' element that you are working on.</paragraph>
+		<paragraph>In this example, "base_scheme" will have the "Verdana" font, of size "-8" in the channel window, and a bold "Arial" font with "-13" size in the status window. The "my_scheme" scheme will have the same font settings as "base_scheme", only the status window font will not be bold, but will also have a "Tahoma"-faced font in the query window.</paragraph>
+		<example title="Basic Inheritance">
+ <![CDATA[<mts>
+	 <scheme id="base_scheme">
+		 <fonts>
+			 <font window="channel" font="Verdana" size="-8" bold="false"/>
+			 <font window="status" font="Arial" size="-13" bold="true"/>
+		 </fonts>
+	 </scheme>
+	 <scheme id="my_scheme" inherits="base_scheme">
+		 <fonts>
+			 <font window="status" bold="false"/>
+			 <font window="query" font="Tahoma"/>
+		 </fonts>
+	 </scheme>
+ </mts>]]>
+		</example>
+	</section>
+	<section>
+		<title>Nested Inheritance</title>
+		<paragraph>When a scheme inherits from another scheme, the theme that is inherited is considered a base scheme. That base scheme can also inherit a theme of its own, which creates "nested inheritence". You can create a chain of inheritence, where one scheme inherits from another scheme, that inherits from another scheme, and so on... Your chain is only limited to the number of schemes you have in your theme.</paragraph>
+		<paragraph>You can use nested inheritance exactly as you use basic inheritance.</paragraph>
+		<example title="Nested Inheritance">
+ <![CDATA[<mts>
+	 <scheme id="base_scheme">
+		 <fonts>
+			<font window="all" font="Verdana" size="-8" bold="false"/>
+		 </fonts>
+	 </scheme>
+	 <scheme id="blue" inherits="base_scheme">
+		 <colors list="1, 2, 3, 1, 3, ... 8, 10">
+			 <palette list="0,0,0 255,0,0 ... 128,128,128" />
+		 </colors>
+	 </scheme>
+	 <scheme id="blue_remix" inherits="blue">
+		 <colors>
+			 <palette>
+				 <rgb index="4">0,124,255</rgb>
+			 </palette>
+		 </colors>
+	 </scheme>
+ </mts>]]>
+		</example>
+		<paragraph>This example shows a good use for nested inheritance. The "base_scheme" sets the font for all mIRC windows as "Verdana", sized "-8". The "blue" scheme sets the colors, and color palette, while the "blue_remix" scheme, which inherits from "blue", only changes a color on the "blue" palette. The result of loading "blue_remix" is that all mIRC windows are using the font defined in "base_scheme". The color list is set as specified in "blue", with the palette set in "blue" but the modification of the 4th color in the palette defined in "blue_remix".</paragraph>
+	</section>
+	<section>
+		<title>Private Schemes</title>
+		<paragraph>A scheme can deem itself as an inheritance-only scheme by setting the 'scope' attribute to "private". A private scheme is one that can not be loaded on its own, and will not be displayed to the user in the list of schemes. These private schemes shall only be used for inheritance purposes, i.e. to allow for a partial scheme which will be completed by schemes inheriting it.</paragraph>
+		<paragraph>All schemes in the example will be loadable, except "base_scheme", which is there only for inheritance. Every scheme inherits from "base_scheme", even if it is indirectly (by nesting), but "base_scheme" as itself ain't a scheme.</paragraph>
+		<example title="Private Scheme">
+ <![CDATA[<mts>
+	 <scheme id="base_scheme" scope="private">
+		 ...
+	 </scheme>
+	 <scheme id="blue" inherits="base_scheme">
+		...
+	 </scheme>
+	 <scheme id="red" inherits="base_scheme">
+		...
+	 </scheme>
+	 <scheme id="red_remixed" inherits="red">
+		...
+	 </scheme>
+	 <scheme id="yellow" inherits="base_scheme">
+		...
+	 </scheme>
+ </mts>]]>
+		</example>
+	</section>
+</page>

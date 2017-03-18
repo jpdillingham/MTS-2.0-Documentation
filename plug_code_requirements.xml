@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Requirements</title>
+	<section>
+		<title>Plugin Identification</title>
+		<paragraph>Your plugin code is required to contain an alias named "mts.plugin.plugin_namespace", where 'plugin_namespace' is the namespace of your plugin.  For example, if your plugin's namespace was "praetoolbar", your alias would be named "mts.plugin.praetoolbar".</paragraph>
+		<paragraph>This alias takes no parameters and returns $true or 1.</paragraph>
+		<paragraph>This is done so that when support for your plugin is found within a theme, the engine can check $mts.plugin.plugin_namespace to see if the plugin is installed.</paragraph>
+		<code title="Declaration example">alias mts.plugin.praetoolbar { return $true }</code>
+	</section>
+</page>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;configuration&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for configuration options and variables.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="alias" required="No" evaluated="No" defaultvalue="N\A" datatype="Text">The alias to be called to initiate the configuration interface.  When specified, all theme configuration elements are ignored and configuration is handled entirely by the theme's support files.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When an alias is specified in the 'alias' attribute, the engine should call that alias and ignore any configuration included in the theme's XML.</paragraph>
+		<paragraph>If 'alias' is not specified, the engine is responsible for the configuration of the theme's settings.  Options should be displayed according to the 'group', 'option' and 'item' elements contained within this element.</paragraph>
+		<paragraph>See the "Engine Requirements" section of the documentation for more information.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Theme defined configuration nesting syntax">
+ <![CDATA[<mts>
+	<scheme>
+		<configuration>
+			<options>
+				<group>
+					<option ../>
+					<option ..>
+						<item ../>
+					</option>
+				</group>
+			</options>
+			<variables>
+				<variable ..> .. </variable>
+			</variables>
+		</configuration>
+	</scheme>
+ </mts> ]]>
+		</example>
+		<example title="Support file controlled configuration nesting syntax">
+ <![CDATA[<mts>
+	<scheme>
+		<configuration alias="mytheme.config"/>
+	</scheme>
+ </mts> ]]>
+		</example>
+	</section>
+</page>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Change Log</title>
+	<section>
+		<title>MTS 2.0.Alpha.2</title>
+		<revision rev="20">
+			<change>The attribute "mode" in /scheme/colors/nicklist/item may now accept both mode prefixes and keywords, namely "any" and "*" to denote an entry matching any mode and "none" to denote an entry matching users with no mode.</change>
+			<change>Updated the example in /scheme/configuration/options/group/option/item to exclude the depreciated "selected" attribute.</change>
+			<change>Added the "hop" keyword in scheme/commands/command, this is referenced when a /hop command is issued.</change>
+			<change>Added the "connect" keyword in scheme/commands/command, this is referenced when a connection to a server is initiated. It is not currently possible to halt default output for this command but it has been included to provide support for scripts using a non-standard means (eg. sockets) of connecting.</change>
+			<change>Added the "connect" keyword in scheme/events/event, this is referenced when the "on connect" event is fired.</change>
+			<change>Added the "disconnect" keyword in scheme/events/event, referenced when a connection to the server is terminated (the 'on disconnect' event is fired).</change>
+			<change>Added the "logon" keyword in scheme/events/event, referenced when the "on logon" event is fired.</change>
+			<change>Removed all DNS events from scheme/events/event and reorganized them under scheme/events/dns</change>
+			<change>Added scheme/events/dns, ../dns/failed, ../dns/resolved, ../dns/resolved/header, ../dns/resolved/line, and ../dns/resolved/footer</change>
+			<change>Modified the list of keywords for all instances of the "target" attribute.</change>
+			<change>The "target" attribute is now capable of accepting multiple keywords in the form of a comma delimited list.</change>
+			<change>Updated all files containing a listing for the "target" attribute's keywords, as well as modified examples to reflect and demonstrate the new keywords.</change>
+			<change>The main index for the documentation is now valid XHTML 1.0 and CSS 2.0.</change>
+			<change>Removed all MTS events from scheme/events/event and reorganized them under scheme/events/mts</change>
+			<change>Added scheme/events/mts, ../mts/start, ../mts/load, and ../mts/unload</change>
+			<change>Modified content.xsl and content.css to allow grouping by revision in gen_changes.xml (Change Log)</change>
+			<change>Updated the "Change Log" section with all of the changes made so far.  The "Summary" section has also been updated for this version but will not contain summary information until the standard reaches a more mature version.</change>
+		</revision>
+		<revision rev="19">
+			<change>Added "Namespaces" to the "Plugin Specifications" section to clarify the usage and purpose of namespaces (suggested by sax).</change>
+			<change>Changed mts.css to a modified version created by thame^ which provides better support for Mozilla Firefox (thanks thame^).</change>
+		</revision>
+		<revision rev="18">
+			<change>In spec_inheritance.xml - added links to general sites about inheritance, and made the first paragraph of "Basic Inheritance" a bit more informative (both of these are praetorian's suggestions).</change>
+		</revision>
+		<revision rev="17">
+			<change>Added cypher's email to the MWG page.</change>
+			<change>Made plugin specifications and theme specifications auto-expand in the table of contents (mts.html).</change>
+			<change>Fixed a bad closing element, and a couple of name inconsistencies in the plug_code_data.xml. (thanks Sax)</change>
+			<change>Fixed inconsistencies with examples in plug_xml.xml. The CDATA sections should be on a new line like most of the other examples throughout the documentation. Maybe we should decide on a standard format?</change>
+			<change>Indentation of example in spec_format.xml was wrong. Also commented out a section about the 'mts' root element, which is not yet ready. Anyone?</change>
+			<change>spec_schemes.xml is now relevant to its subject. I haven't been very creative about example names in this file, so if anyone has any suggestions, go ahead. And wording can also be a little off sometimes, as this is the first real version of this file. Please help improve it!</change>
+			<change>Added spec_inheritance.xml - containing information about scheme inheritance. Again, the example names can be a bit more creative, and the wording can be way better. If you have any suggestions, tell me.</change>
+		</revision>
+		<revision rev="16">
+			<change>Modified the capitalization of the section headings used in gen_about.xml and gen_introduction.xml</change>
+			<change>Updated the number of current MTS Working Group members in gen_introduction.xml</change>
+		</revision>
+		<revision rev="15">
+			<change>Added cypher's name to the MWG page, with no email.</change>
+		</revision>
+		<revision rev="14">
+			<change>First commit of the 'Plugin Specification' section; added files: plug_intro.xml, plug_xml.xml, plug_code_data.xml, plug_code_events.xml, plug_code_requirements.xml</change>
+			<change>Modified the example in /scheme/plugins/plugin/ containing a linked resource to include a namespace prefix for the resource element.</change>
+			<change>Fixed a 1px display bug in the inline frame of the documentation by modifying mts.css. This change applies to both Internet Explorer and Mozilla Firefox.</change>
+			<change>Added code to content.xsl to handle &lt;code&gt; elements; this element behaves the same way as &lt;example&gt; but has a left margin of 22px rather than 2px.</change>
+			<change>Added a class to content.css to handle &lt;pre&gt; tags used in conjunction with &lt;code&gt; elements.</change>
+		</revision>
+		<revision rev="13">
+			<change>Resynched gen_mwg.xml (member emails)</change>
+		</revision>
+		<revision rev="12">
+			<change>Added the 'name' attribute to /scheme/configuration/options/group/, updated the examples to reflect this addition.</change>
+			<change>Added the 'name' attribute to /scheme/configuration/options/group/option/, updated the examples to reflect this addition.</change>
+			<change>Modified the 'Data' and 'Engine Requirements' sections of /scheme/plugins/plugin/ to include linked and embedded resources, added an example of a plugin using a linked resource.</change>
+			<change>Changed 'filetype' in the first example of /mts/resources/resource/ to 'type'</change>
+			<change>Changed the wording of 'Engine Requirements' under /scheme/colors/ to include information about an incomplete or missing list as specified in the 'list' attribute.</change>
+			<change>Changed the wording of 'Engine Requirements' under /scheme/colors/color/ to describe the relationship between the 'list' attribute in /scheme/colors/ and the individual &lt;color&gt; elements.</change>
+			<change>Changed the wording of the 'Engine Requirements" under /scheme/colors/palette/ and /scheme/colors/palette/rgb/ to describe the relationship between the 'list' attribute in the &lt;palette&gt; element and the individual &lt;rgb&gt; elements.</change>
+			<change>Added the emails of all MTS Working Group members to the "MTS Working Group" section under "General Information"</change>
+			<change>Updated the "Introduction" section to include a reference to "Plugin Specifications"</change>
+			<change>Updated "About This Document" to include information about translations and other versions of the documentation and a link to mircthemes.com</change>
+		</revision>
+		<revision rev="11">
+			<change>seec77 added sax's email to the MWG page.</change>
+		</revision>
+		<revision rev="10">
+			<change>seec77 added VoP and Man's emails to the MWG page.</change>
+		</revision>
+		<revision rev="9">
+			<change>seec77 added his email to the MWG page.</change>
+		</revision>
+		<revision rev="8">
+			<change>Modified /scheme/preview/ to allow the usage of constant keywords in data</change>
+			<change>The data specified in /scheme/preview/ must always be contained within a &lt;![CDATA[ ]]&gt; tag.</change>
+			<change>Added the 'encoded' attribute to /scheme/preview/; must be set to "true" when the preview text is MIME-encoded.</change>
+			<change>Updated the "Data" and "Engine Requirements" section of the /scheme/preview/ specification to reflect the addition of the 'encoded' attribute, the CDATA tag requirement and the allowance of constant keywords.</change>
+			<change>Modified the "Examples" section of /scheme/preview/ to reflect the changes to the specification; added a plain-text example.</change>
+			<change>Added the "MTS Working Group" section, modified content.xsl and content.css to provide support for the member listing.</change>
+		</revision>
+		<revision rev="7">
+			<change>Modified /scheme/fonts/font's "Engine Requirements" section, the engine is now required to process font settings in the order in which they appear in a theme.</change>
+			<change>Attributes of /scheme/fonts/font are no longer required. 'window' now has a default value of "all", 'font' now defaults to whatever is the current font and 'size' defaults to whatever the current font size is.</change>
+			<change>Removed the 'language' attribute from /resources/resource, it was no longer needed.</change>
+			<change>Updated the examples in /resources/resource to reflect the removal of the language attribute.</change>
+			<change>Modified the "Engine Requirements" section of /resources/resource; the engine is now responsible for the loading and unloading of resources with a type of 'script'.</change>
+			<change>Removed the inheritance details from /scheme/; replaced with a reference to the "Engine Requirements" section of the documentation.</change>
+			<change>The 'language' attribute in /scheme/ is now purely informational. Updated the "Engine Requirements" of the element to reflect this change.</change>
+			<change>Added the 'scope' attribute in /scheme/</change>
+			<change>Added a "Keywords" section in /scheme/ to list the acceptable keywords for the 'scope' attribute</change>
+			<change>Removed the 'name' attribute from /scheme/configuration/options/group/option</change>
+			<change>Updated the examples for /scheme/configuration/options/group/option to reflect the removal of the 'name' attribute</change>
+			<change>Modified the 'menu' type example in /scheme/configuration/options/group/option to demonstrate the usage of children 'item' elements</change>
+			<change>Removed the 'selected' attribute from /scheme/configuration/options/group/option; it was not needed</change>
+			<change>Removed the 'selected' attribute from /scheme/configuration/options/group/option/item; it was not needed</change>
+			<change>Removed the 'name' attribute from /scheme/configuration/options/group</change>
+			<change>Updated the example in /scheme/configuration/options/group to reflect the removal of the 'name' attribute</change>
+			<change>Removed the 'type' attribute from /scheme/configuration/. Configuration type is now detected with the presence of a value in the 'alias' attribute.</change>
+			<change>Modified the example for /scheme/configuration/ to reflect the removal of the 'type' attribute</change>
+			<change>Added an example in /scheme/configuration/ to illustrate a support file-controlled configuration by specifying an alias</change>
+			<change>Modified the "Engine Requirements" of /scheme/configuration/ to provide more information about the proper way to handle theme-defined configuration</change>
+			<change>Modified the description of the 'alias' attribute in /scheme/configuration/ to explain the autodetection of configuration type</change>
+			<change>Modified the example for /scheme/raws/motd/line/; &lt;line&gt; is now used instead of &lt;header&gt;</change>
+			<change>Removed the 'server' keyword for the 'type' attribute in /scheme/commands/command; there are no instances in which it can be used</change>
+			<change>Added to the "Engine Requirements" section of /resources/resource; this alias must return the path to the file associated with the specified resource</change>
+			<change>Added the specifications for the &lt;preview&gt; element.</change>
+		</revision>
+		<revision rev="6">
+			<change>Constants may now be used in element attributes and data.</change>
+			<change>Added an example of a constant reference within an attribute to /scheme/constants/constant.</change>
+			<change>Modified existing examples in /scheme/constants/constant to use the attribute "type" rather than the depreciated "site".</change>
+			<change>Constant keywords may be used in the data for other constants IF the constant element for the keyword in question appears before the constant element in which it is referenced.</change>
+			<change>When returning data with the engine should return unevaluated text, regardless of the value of the "evaluate" attribute.</change>
+		</revision>
+		<revision rev="5">
+			<change>'defaultScheme' in the &lt;mts&gt; tag is only needed when the default scheme is not the first listed</change>
+			<change>If not set, 'languages' will be assumed to support English (EN) and nothing else. this applies to the attribute in both the &lt;mts&gt; and &lt;scheme&gt; tags</change>
+			<change>Modified the description of the 'inherits' attribute in /mts/scheme to read "id" instead of "name"</change>
+			<change>"This element contains no data" changed to "This element contains no textual data" in cases where the element contains children elements.</change>
+			<change>Changed one of the email addresses in the mts/about/author examples</change>
+			<change>Individual &lt;color&gt; tags appearing in mts/scheme/colors will now override colors set in the 'list' attribute of the &lt;colors&gt; tag</change>
+			<change>Added self-closing slashes "/&gt;" to examples in /mts/configuration/options/group/option/item</change>
+			<change>Added an example to /mts/scheme/colors/nicklist/item to illustrate the declaration of two modes</change>
+			<change>Changed "name" in the description of the 'inherits' tag under mts/scheme to "id"</change>
+			<change>Added the "mode" keyword for the attribute 'name' of mts/scheme/events/event</change>
+			<change>Changed the headings of the &lt;url&gt; and &lt;author&gt; tags to their respective names, were previously &lt;version&gt;</change>
+			<change>Colors in the format RGB,RGB (long format) and R,G,B R,G,B are now supported in the 'list' attribute of mts/scheme/colors/palette</change>
+			<change>Multiple modes may be specified in the 'mode' attribute of mts/scheme/colors/nicklist/item</change>
+			<change>Changed /cline to /cnick in the "Engine Requirements" section of /mts/scheme/colors/nicklist/item, moved text from "Data" to "Engine Requirements"</change>
+			<change>RGB (long format) and R,G,B are now supported as values for the 'rgb' attribute in /mts/scheme/backgrounds/background</change>
+			<change>Added an example of a background using the long RGB format in /mts/scheme/backgrounds/background</change>
+			<change>The document under /mts/scheme/constants now reflects the data for that tag instead of /mts/about</change>
+			<change>Modified the nesting example under /mts/resources to contain only one occurance of the &lt;resource&gt; tag</change>
+			<change>The "Evaluated" column under /mts/scheme/constants/constant is now filled with the correct values</change>
+			<change>The 'filetype' attribute in the example for /mts/scheme/resources/resource has been fixed to read 'type'</change>
+			<change>The 'number' attribute for /mts/scheme/raws/raw now supports both ranges of numbers (ie 600-650) and lists (ie 600,605,610) and any combination of the two (ie 600-610,615,120).</change>
+			<change>Updated the "Engine Requirements" for /mts/scheme/raws/raw to reflect the changes regarding the 'number' attribute</change>
+			<change>Added two examples to /mts/scheme/raws/raw to demonstrate using a range and list as a value for the 'number' attribute</change>
+			<change>The "Engine Requirements" for /mts/scheme/raws/whois no longer require the engine to store whois data according to nickname, only by connection id ($cid)</change>
+			<change>Changed all references to elements as "tags" to "elements" to maintain consistency.</change>
+			<change>Added a paragraph to each element page explaining whether or not the tag is required and how many times it may appear in the theme</change>
+		</revision>
+	</section>
+	<section>
+		<title>MTS 2.0.Alpha.1</title>
+		<revision rev="1">
+			<change>First public release.</change>
+		</revision>
+	</section>
+</page>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Data Retrieval</title>
+	<section>
+		<title>Using Xpath</title>
+		<paragraph>Xpath is a W3C standard that is used to retrieve XML from DOM (Document Object Model) parsers and is used with XSL (sometimes called XSLT) to transform XML documents into HTML.</paragraph>
+		<paragraph>MTS 2.0 supports some of the features of Xpath, but not all.  The features that are supported strictly follow the Xpath standard to ensure future compatibility with mIRC XML parsers.  This also means that any website that contains information or tutorials on Xpath will be useful to MTS plugin authors.</paragraph>
+		<paragraph>For more information about Xpath, please visit the following links:</paragraph>
+		<link>http://www.w3schools.com/xpath/</link>
+		<link>http://www.w3.org/TR/xpath</link>
+	</section>
+	<section>
+		<title>Example XML</title>
+		<paragraph>Below is the XML used in the examples in this section.</paragraph>
+		<example title=""><![CDATA[<plugin xmlns:mtsplug="http://www.mircthemes.com/plugins/mtsplug" version="1.0">
+	<mtsplug:window name="toolbox">
+		<mtsplug:position x="100" y="150"/>
+		<mtsplug:size width="200" height="250"/>
+		<mtsplug:background style="stretch">bg.bmp</mtsplug:background>
+	</mtsplug:window>
+	<mtsplug:window name="properties" parent="toolbox">
+		<mtsplug:position x="5" y="5"/>
+		<mtsplug:size width="100" height="50"/>
+		<mtsplug:background style="tile">prop.bmp</mtsplug:background>
+	</mtsplug:window>
+	<mtsplug:skins>
+		<mtsplug:default>default.skn</mtsplug:default>
+		<mtsplug:alternate version="2.0">alt.skn</mtsplug:alternate>
+	</mtsplug:skins>
+	<mtsplug:resource name="img" type="image" file="/mtsplug/image.bmp"/>
+</plugin>]]>
+		</example>
+	</section>
+	<section>
+		<title>Retrieving Element Data</title>
+		<paragraph>To retrieve data, the $mts.plugin() identifier must be passed the namespace of your plugin and the path of the data you wish to retrieve.</paragraph>
+		<paragraph>The syntax of the path is very similar to the syntax used in Windows or on the WWW to locate web pages or files.  Starting from the relative path of the "plugin" tag for the plugin, the path must list the first element in the "tree" that contains the element you wish to reference.  The second parent element is listed next, separated from the first element with a backslash "/".  The third and any subsequent parents are listed, separated with backslashes.  The name of the element you wish to reference is listed last, as demonstrated in the examples below.</paragraph>
+		<paragraph>An Xpath expression typically uses a leading backslash "/" to indicate an absolute path and omits this character to indicate a relative path.  In the context of MTS, including the leading backslash "/" will have the same effect as omission; the paths used with the $mts.plugin identifier are both relative and absolute at the same time so a leading "/" is valid but ignored.</paragraph>
+		<paragraph>To retrieve the data contained within the 'plugin' element itself, the period "." operator may be specified as the path.  This is the only situation in which this operator is used.</paragraph>
+		<paragraph>The example XML contains four data values; the images contained within the "window" elements, which will be discussed later, and the "default" and "alternate" values contained within the "skins" element.  To retrieve the value of these elements, the $mts.plugin identifier is used like so:</paragraph>
+		<code title="Returns the value of the 'default' and 'alternate' elements">$mts.plugin(mtsplug,skins/default) 	-->	 'default.skn'
+$mts.plugin(mtsplug,skins/alternate) 	-->	 'alt.skn'</code>
+	</section>
+	<section>
+		<title>Retrieving Attribute Values</title>
+		<paragraph>Attribute values are retrieved the same way data values are, but with one small difference.  The very last token in a path must be an attribute name, prefixed with the "at" symbol "@".  The second-to-last token in the list contains the name of the element which contains the specified attribute.</paragraph>
+		<paragraph>The example XML above contains many attributes, but for this example we will retrieve the value of the "version" attribute of the "alternate" element.</paragraph>
+		<code title="Returns the value of the 'version' attribute in 'alternate'">$mts.plugin(mtsplug,skins/alternate/@version) 	-->	'2.0'</code>
+	</section>
+	<section>
+		<title>Complex Node References</title>
+		<paragraph>There may come a time when it is necessary to include more than one occurance of a given tag, as seen with the "window" element in the example XML above.  For these situations, more complex Xpath references must be used.  These references allow the user to reference similarly named tags by a numerical index or attribute value, or both.</paragraph>
+		<paragraph>To reference an element using a numerical index, square brackets "[" and "]" are appended to the node name and the index is placed between.  An index may be added to any node appearing in a node list.  To reference the very last matching element, the text "last()" is substituted in place of the index number.</paragraph>
+		<paragraph>To reference an element by attribute value, square brackets "[" and "]" are again used, this time with the name of the attribute, prefixed with the "at" character "@", followed by an equals sign "=" and the specified value of the attribute.  As with numerical indexes, this may be applied to any element in a pathname.</paragraph>
+		<paragraph>Finally, these two sets of conditions may be used in conjunction with one another.  To create a numerical index on an element with a specific attribute value, two sets of square brackets are used, one after the other, the first containing the numerical index and the second containing the attribute name and value.</paragraph>
+		<paragraph>Below are several examples of the syntax used in complex node references.</paragraph>
+		<code title="Returns the data value of 'background' in the first 'window' element using a numerical index">$mts.plugin(mtsplug,window[1]/background)	-->	'bg.bmp'</code>
+		<code title="Returns the 'parent' attribute value of the 'window' element who's 'name' attribute is equal to 'properties'">$mts.plugin(mtsplug,window[@name=properties]/@parent)	-->	'toolbox'</code>
+		<code title="Returns the 'x' attribute of the 'position' element contained in the first 'window' element who's 'name' attribute is 'toolbox'">$mts.plugin(mtsplug,window[1][@name=toolbox]/position/@x) 	-->	'100'</code>
+		<code title="Returns the value of the 'height' attribute in the 'size' element in the last 'window' element">$mts.plugin(mtsplug,window[last()]/size/@height)	-->	'50'</code>
+	</section>
+	<section>
+		<title>Resources</title>
+		<paragraph>Linked and embedded resources may be used with your plugin.  To retrieve the path of a resource, the $mts.resource() identifier is used with an extra parameter in addition to the resource name.  This parameter is the namespace of your plugin and must come before the name of the resource when referencing $mts.resource()</paragraph>
+		<code title="Returns the absolute path to the resource 'img'">$mts.resource(mtsplug,img)</code>
+	</section>
+</page>

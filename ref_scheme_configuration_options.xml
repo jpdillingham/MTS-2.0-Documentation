@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;options&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for configuration options.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<paragraph>There are no attributes for this element.</paragraph>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>This element does not require any special processing.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Nesting syntax">
+ <![CDATA[<mts>
+	<configuration>
+		<options>
+			<group>
+				<option ../>
+				<option ..>
+					<item ../>
+				</option>
+			</group>
+		</options>
+	</configuration>
+ </mts> ]]>
+		</example>
+	</section>
+</page>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;resolved&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for DNS lookup output settings.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="displayType" required="No" evaluated="Yes" datatype="Keyword" defaultvalue="sentence">Defines the way the engine should return the data gathered by the DNS lookup.</attribute>
+			<attribute name="perLine" required="No" evaluated="Yes" datatype="Numeric" defaultvalue="4">Defines the number of addresses to return per line.  Only used when "displayType" is set to "block".</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="displayType">
+			<keyword name="block">Indicates that the engine should return results in multiple lines with "N" nicks per line, where "N" is defined by the "perLine" attribute.</keyword>
+			<keyword name="sentence">Indicates that the engine should return a pseudo-sentence containing the list of results.  This list will be in the form: "addr1, addr2, addrN, .. and addrN+1"</keyword>
+			<keyword name="single">Indicates that the engine should display the text contained in the "line" element once for every address that was resolved.</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The engine should apply the settings defined in the "displayType" and "perLine" attributes accordingly.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Nesting syntaxDeclaration">
+ <![CDATA[<mts>
+	<scheme>
+		<events>
+			<dns>
+				<resolved>
+					<header> ... </header>
+					<line> ... </line>
+					<footer> ... </footer>
+				</resolved>
+			</dns>
+		</events>
+	</scheme>
+ </mts>]]>
+		</example>
+		<example title="Declaration">
+ <![CDATA[<resolved displayType="block" perLine="4">
+	<header> ... </header>
+	<line> ... </line>
+	<footer> ... </footer>
+ </resolved>]]>
+		</example>
+	</section>
+</page>

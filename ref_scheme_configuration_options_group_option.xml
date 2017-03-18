@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;option&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container configuration options and variables.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per group.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Text">A unique name for the option.</attribute>
+			<attribute name="type" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Keyword">The type of option.</attribute>
+			<attribute name="variable" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Text">The name of a predefined variable that holds the value of the option.</attribute>
+			<attribute name="label" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Text">The caption text of the option.</attribute>
+			<attribute name="userDefinedItems" required="No" evaluated="No" defaultvalue="'none'" datatype="Keyword">Controls whether the option allows user-defined values.  Only applicable when type is set to 'menu'.</attribute>
+			<attribute name="validationAlias" required="No" evaluated="No" defaultvalue="N\A" datatype="Text">The alias to be used to validate user-defined values. Only applicable when type is set to 'menu' with userDefinedItems set to 'one' or 'many' or when type is set to 'input'.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="type">
+			<keyword name="toggle">Indicates that the control is a simple on/off switch</keyword>
+			<keyword name="menu">Indicates that the control is a menu consisting of multiple options</keyword>
+			<keyword name="input">Indicates that the control uses user-defined values</keyword>
+		</keywords>
+		<keywords attribute="userDefinedItems">
+			<keyword name="none">Indicates that the control does not allow user-defined list entries</keyword>
+			<keyword name="one">Indicates that the control allows one user-defined value</keyword>
+			<keyword name="many">Indicates that the control allows an infinite number of user-defined values</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>'toggle' options should be displayed as a simple on/off control such as a checkbox.  'menu' options should be displayed as a list consisting of the options defined in the 'item' tags that are children of the node.  When userDefinedItems is set to 'one' or 'many', the engine is responsible for allowing user input and selection of the added valutes. 'input' type options should be displayed as simple editbox controls or $input boxes (or similar).</paragraph>
+		<paragraph>In cases where user-defined input is allowed, the engine should send the input text to the alias defined in the validationAlias attribute.  The theme's support script should return nothing or $null if the input is valid and an error message otherwise.  Any errors should be displayed to the user.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration of a 'toggle' option">
+ <![CDATA[<option 
+	name="mprefix"
+	type="toggle" 
+	variable="showmodeprefix" 
+	label="Enable mode prefix in channel messages" 
+	selected="true"
+ />]]>
+		</example>
+		<example title="Declaration of a 'menu' option">
+ <![CDATA[<option 
+	name="lbrkt"
+	type="menu" 
+	variable="leftbracket" 
+	label="Left bracket character" 
+	userDefinedItems="one"
+	validationAlias="bracket_validate"
+ >
+	<item ../>
+	<item ../>
+ </option>
+]]>
+		</example>
+		<example title="Declaration of an 'input' option">
+ <![CDATA[<option 
+	name="ts_format"
+	type="input" 
+	variable="timestampformat" 
+	label="Timestamp Format" 
+	validationAlias="timestampvalidate"
+ />]]>
+		</example>
+	</section>
+</page>

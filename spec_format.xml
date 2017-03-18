@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Format</title>
+	<section>
+		<title>XML</title>
+		<paragraph>MTS 2.0 themes are written in XML, or eXtensible Markup Language.  Advanced knowledge of XML is not needed when dealing with an MTS theme but you should have at least some basic knowledge of XML syntax to avoid parsing errors.  Listed below are two excellent resources for general information about XML.</paragraph>
+		<link>http://www.w3schools.com/xml/</link>
+		<link>http://www.xmlfiles.com/xml/</link>
+	</section>
+	<section>
+		<title>Basic Format</title>
+		<paragraph>Every theme should start with two basic elements; the XML declaration and the MTS root element.</paragraph>
+		<example title="Basic XML Format">
+ <![CDATA[<?xml version="1.0" encoding="ISO-8859-1"?>
+ <mts>
+	...
+ </mts>]]>
+		</example>
+		<paragraph>The XML encoding may be changed if you wish, however ISO-8859-1 has been found to work well.</paragraph>
+		<paragraph>The rest of the theme should appear between the opening and closing 'mts' tags.  Placing elements or data elsewhere in the file will likely generate errors.</paragraph>
+	</section>
+	<!--<section>
+		<title>The 'mts' root element</title>
+		<paragraph>'mts' is the starting ground for all themes and all theme information goes inside it. You must not include any XML information (or plain text) after the 'mts' element closing tag ('&lt;/mts&gt;').</paragraph>
+	</section>-->
+</page>

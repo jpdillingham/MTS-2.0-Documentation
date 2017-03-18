@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>MTS Working Group</title>
+	<section>
+		<title>Active Members (In Alphabetical Order)</title>
+		<members>
+			<member name="Alan" email="alan@mircthemes.com"/>
+			<member name="crazy2k" email="crazy2k@mircthemes.com"/>
+			<member name="cypher" email="allenhunt@gmail.com"/>
+			<member name="Man" email="oaliey@gmail.com"/>
+			<member name="praetorian" email="praetorian@mircthemes.com"/>
+			<member name="sax" email="domxml@gmail.com"/>
+			<member name="seec77" email="seec77@mircthemes.com"/>
+			<member name="Soul_Eater" email="souleata@mircthemes.com"/>
+			<member name="Voice of Power" email="marckuiper@hotmail.com"/>
+		</members>
+	</section>
+	<section>
+		<title>Inactive Members (In Alphabetical Order)</title>
+		<paragraph>There are no inactive members.</paragraph>
+	</section>
+</page>

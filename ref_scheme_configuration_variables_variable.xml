@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;variable&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element allows themers to define internal theme variables to be used in conjunction with configuration options.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" evaluated="No" required="Yes" defaultvalue="N\A" datatype="Text">The name used to reference the variable.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Any plain text consisting of mIRC control codes, identifiers or constant keywords.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When declared, each variable should be initialized to the setting defined in the theme's XML.  When changes are made to a variable, this value should be updated (naturally).</paragraph>
+		<paragraph>The engine must make the $mts.variable() alias available to themes, accepting one parameter (the name of the variable), and returning the value of the variable.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<variable name="timestamp_status">$false</variable>]]>
+		</example>
+	</section>
+</page>

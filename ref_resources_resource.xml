@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;resource&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element allows theme authors to define resource names and associated settings for use in various parts of a theme.</paragraph>
+		<paragraph>This element is optional and may appear one or more times.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" required="Yes" evaluated="No" datatype="Text" defaultvalue="none">A unique plain-text string used to identify the resource.</attribute>
+			<attribute name="type" required="Yes" evaluated="No" datatype="Keyword" defaultvalue="none">A reserved word that describes the content of the file.</attribute>
+			<attribute name="file" required="No" evaluated="No" datatype="URI" defaultvalue="none">The location of the file, relative to the location of the theme.  Only required when embedding is not being used.</attribute>
+			<attribute name="extension" required="No" evaluated="No" datatype="Text" defaultvalue="none">The extension of the file. Only required when embedding is used.</attribute>
+			<attribute name="checksum" required="No" evaluated="No" datatype="Text" defaultvalue="none">The MD5 checksum of the original (unencoded and uncompressed) file.  Only required when embedding is used.</attribute>
+			<attribute name="size" required="No" evaluated="No" datatype="Numeric" defaultvalue="none">The size of the original file in bytes with no formatting.  Only required when embedding is used.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="type">
+			<keyword name="sound">Indicates that the resource is a sound file</keyword>
+			<keyword name="image">Indicates that the resource is an image file</keyword>
+			<keyword name="script">Indicates that the resource is an mIRC script file</keyword>
+			<keyword name="support">Indicates that the resource is a support file for the theme's script files</keyword>
+			<keyword name="font">Indicates that the resource is a Windows font file</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Compressed (via mIRC's $compress()), MIME-encoded binary data.  This data must be enclosed with a &lt;![CDATA[ ]]&gt; tag and must be split up into 750 character lines.  It is imperative that lines conform to the 750 character limit to avoid mIRC's line-length limitation.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When embedded files are used, the engine must extract the data and either save it in a binary variable or external file in the correct order and without adding or deleting data.</paragraph>
+		<paragraph>Once the data is extracted, the engine must first $decode the file using the 'm' switch, indicating MIME encoded data.  The file must then be $decompressed.</paragraph>
+		<paragraph>The data should then be written to an external file, preferably one named by combining the text specified in the 'name' and 'extension' attributes.</paragraph>
+		<paragraph>Once the file has been written, the engine needs to get the MD5 checksum of the file ($md5(filename)) and check it against the checksum specified in the 'checksum' attribute.  If the two values do not match, the engine should assume data corruption has taken place at some point.</paragraph>
+		<paragraph>If a resource has a type of 'script' the engine should load it when the theme is loaded and unload it when the theme is changed.</paragraph>
+		<paragraph>The engine must make the path of all resource files available through the $mts.resource(resource_name) alias.  When embedded resources are used, the engine should return the path to the extracted file.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration of a resource not using embedded data">
+ <![CDATA[<resource name="toolbar_buttons" type="image" file="images\toolbar.png" /> ]]>
+		</example>
+
+		<example title="Declaration of a resource using embedded data">
+ <![CDATA[<resource 
+	name="joinsound" 
+	extension="mp3"
+	type="sound" 
+	checksum="18437abe6c4c4936f875372458024e74" 
+	size="13451" 
+ >
+ 	<![CDATA[ 
+		eJzsvX18F ... uruQ5RKlLS
+		U4t8LPVtJ ... 2Qe/suafax
+		axVR5CbTB ... Tuy+BA+8hI
+	] ]>
+ </resource>]]>
+		</example>
+	</section>
+</page>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;constant&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element allows a themer to define a preset string of data that may be referenced within the data for other theme elements by insertion of the constant's keyword.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" evaluated="No" required="Yes" datatype="Text" defaultvalue="N\A">A unique, one word name used to identify the constant.</attribute>
+			<attribute name="keyword" evaluated="No" required="Yes" datatype="Text" defaultvalue="N\A">A unique string used to reference the constant within the theme.</attribute>
+			<attribute name="evaluate" evaluated="No" required="No" datatype="Boolean" defaultvalue="false">Set to 'true' or 'false' depending on whether the text within the constant definition should be evaluated by mIRC before substitutions are made.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Any text consisting of plain text, mIRC control codes and identifiers.  The data must be on one line. Multiple lines are not supported and any CR and/or LF characters contained in the data will be converted to a single space ($chr(32)).</paragraph>
+		<paragraph>Keywords for other constants may be used, however the order in which they appear decides whether the keyword will be replaced.  If you wish to use a keyword in another constant tag, the constant for the keyword in question needs to have been declared before the constant in which it is used.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When parsing theme XML, the engine must replace all occurances of each constant keyword (as defined in the 'keyword' attribute) with the data contained within the respective content tag.  Keywords may be used in element data AND attributes.</paragraph>
+		<paragraph>If the attribute 'evaluate' is set to 'true', the engine must evaluate the constant's data before making replacements or substitutions.</paragraph>
+		<paragraph>The engine must make the identifer $mts.constant() available within theme data.  This identifer needs to accept one parameter, the name of the constant (as defined in the 'name' attribute of the tag), and return the data associated with the specified constant.  The engine should return unevaluated data, regardless of the value of the "evaluate" attribute.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Constant declaration"><![CDATA[ <constant name="prefix" keyword="{pre}" evaluate="true">$chr(3) $+ 7ù $+ $chr(3)</constant> ]]></example>
+		<example title="Constant keyword reference within another element">
+ <![CDATA[<event name="join" type="channel">{pre} Join: $nick ( $+ $address $+ )</event>]]>
+		</example>
+		<example title="Constant declaration with evaluation"><![CDATA[ <constant name="k" keyword="\k" evaluate="true">$chr(3)</constant> ]]></example>
+		<example title="Constant keyword reference with evaluation">
+ <![CDATA[<event name="text" type="private">\k04[\k15 $+ $nick $+ \k04]:\k15 $1-</event>]]>
+		</example>
+		<example title="Constant keyword reference within an attribute">
+ <![CDATA[<event name="text" type="channel" indent="{text_indent}">[ $+ $nick $+ ]: $1-</event>]]>
+		</example>
+	</section>
+</page>

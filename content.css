@@ -1,0 +1,101 @@
+h1 {
+  border: 1px solid #DCDCDC;
+  background: #ECECEC;
+  font-size: 14pt;
+  padding: 4px;
+}
+h2 {
+  border: 1px solid #E3E3E3;
+  background: #F3F3F3;
+  font-size: 10pt;
+  padding: 2px;
+}
+p {
+  padding-left: 20px;
+}
+body {
+  font-family: tahoma; 
+  font-size: 8pt;
+}
+th {
+  text-align: left;
+  padding-bottom: 4px;
+}
+td {
+  vertical-align: top;
+  border: 1px solid #E3E3E3;
+  padding: 4px;
+}
+.main { 
+  margin-right: 4px !important;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  margin-right/**/:/**/ -6px;
+  margin-left/**/:/**/ -10px;
+
+}
+.attributes {
+  width: 100%;
+  margin-left: 8px;
+  border-collapse: collapse;
+  font-family: tahoma;
+  font-size: 8pt;
+}
+pre {
+  border: 1px dashed #C8C8A6;
+  background: #F6F6D8;
+  font-family: courier new;
+  font-size: 9pt;
+  padding: 4px;
+  margin-top: 4px;
+}
+.change {
+  margin-left: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+.revision {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  display: block;
+}
+.example {
+  font-weight: bold;
+  margin-left: 2px;
+}
+.keywords {
+  width: 500px;
+  margin-left: 8px;
+  border-collapse: collapse;
+  font-family: tahoma;
+  font-size: 8pt;
+}
+.keyword {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.identifiers {
+  width: 500px;
+  margin-left: 20px;
+  border-collapse: collapse;
+  font-family: tahoma;
+  font-size: 8pt;
+}
+.members {
+  margin-left: 20px;
+  font-family: tahoma;
+  font-size: 8pt;
+  border-collapse: collapse;
+  border: 1px solid #FFFFFF;
+}
+.member { 
+  border: 1px solid #FFFFFF;
+}
+.code {
+  font-weight: bold;
+  margin-left: 22px;
+}
+.codepre {
+  margin-left: 22px;
+}

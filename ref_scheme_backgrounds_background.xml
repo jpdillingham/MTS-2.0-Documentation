@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;background&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element allows themers to specify background images for various windows and objects in mIRC.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="location" required="Yes" evaluated="No" datatype="Keyword" defaultvalue="N\A">The type of window or object to which the background image will be applied.</attribute>
+			<attribute name="resource" required="No" evaluated="No" datatype="Text" defaultvalue="N\A">The name of the image resource that contains the background image.  This is required unless a color index or RGB value has been specified.</attribute>
+			<attribute name="display" required="No" evaluated="Yes" datatype="Keyword" defaultvalue="'stretch'">The method used to display the image.</attribute>
+			<attribute name="color"	required="No" evaluated="Yes" datatype="Numeric" defaultvalue="N\A">The mIRC color index which should be applied to the location.</attribute>
+			<attribute name="rgb" required="No" evaluated="Yes" datatype="Numeric" defaultvalue="N\A">This attribute behaves the same way 'color' does but allows an RGB value to be specified rather than an mIRC color index.  Both the 'R,G,B' and 'RGB' (long format) formats are acceptable.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="location">
+			<keyword name="channel">Applies to channel windows</keyword>
+			<keyword name="status">Applies to status windows</keyword>
+			<keyword name="query">Applies to query windows</keyword>
+			<keyword name="finger">Applies to the finger window</keyword>
+			<keyword name="main">Applies to the main mIRC window (MDI)</keyword>
+			<keyword name="toolbar">Applies the toolbar</keyword>
+			<keyword name="buttons">Applies to the toolbar buttons</keyword>
+			<keyword name="switchbar">Applies to the switchbar</keyword>
+		</keywords>
+		<keywords attribute="display">
+			<keyword name="center">Centers the image</keyword>
+			<keyword name="fill">Fills the target with the image</keyword>
+			<keyword name="normal">Displays the image normally</keyword>
+			<keyword name="stretch">Stretches the image to the width and height of the target</keyword>
+			<keyword name="tile">Tiles the image</keyword>
+			<keyword name="photo">Displays the image as a photograph</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When either the color or rgb attribute is set, the engine should create a small image of the color specified and use the -f, -r or -t switch to fill, stretch or tile the image.</paragraph>
+		<paragraph>The engine should check the "type" attribute of the specified resource (if present) to make sure it is set to "image".</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration using a resource">
+ <![CDATA[<background location="channel" resource="channel_image" display="photo"/> ]]>
+		</example>
+		<example title="Declaration using an mIRC color index">
+ <![CDATA[<background location="toolbar" color="$color(background)"/> ]]>
+		</example>
+		<example title="Declaration using an RGB value">
+ <![CDATA[<background location="switchbar" rgb="$rgb(32,34,96)"/> ]]>
+		</example>
+		<example title="Declaration using a long RGB value">
+ <![CDATA[<background location="switchbar" rgb="1644825"/> ]]>
+		</example>
+	</section>
+</page>

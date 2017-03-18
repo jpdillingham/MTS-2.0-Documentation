@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<title>MTS 2.0.Alpha.2 Documentation</title>
+<link href="mts.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+function showhide(idarg) {
+	 var idd = idarg + "_d";
+	 var idf = idarg + "_f";
+	 var idi = idarg + "_i";
+	 if (document.getElementById(idd)) {
+		 var status = document.getElementById(idd).style.display;
+		 if (status == 'block') { document.getElementById(idd).style.display = 'none'; document.getElementById(idi).src = "img_expand.png"; document.getElementById(idi).alt = "Expand Node"; }
+		 else { document.getElementById(idd).style.display = 'block'; document.getElementById(idi).src = "img_contract.png"; document.getElementById(idi).alt = "Collapse Node"; }
+	 }
+	 if (document.getElementById(idf)) {
+		 var status = document.getElementById(idf).style.display;
+		 if (status == 'block') { document.getElementById(idf).style.display = 'none'; document.getElementById(idi).src = "img_expand.png"; document.getElementById(idi).alt = "Expand Node"; }
+		 else { document.getElementById(idf).style.display = 'block'; document.getElementById(idi).src = "img_contract.png"; document.getElementById(idi).alt = "Collapse Node"; }
+	 }
+}
+</script>
+</head>
+<body>
+<table border="0" width="100%" style="height: 2500px;">
+	<tr><td colspan="2"><h1>MTS 2.0.Alpha.2 Documentation</h1></td></tr>
+	<tr>
+	<td valign="top" class="toc_table">
+		<div class="toc">
+			<span style="font-size: 10pt; margin-left: 4px;"><b>Table of Contents</b></span>
+                         <div class="root">
+			 <div><a onclick="showhide('structure-General_Information')"><img id="structure-General_Information_i" src="img_contract.png" alt="Collapse Node" /><span class="foldertitle">General Information</span></a>
+				 <div class="folder" style="display: block;" id="structure-General_Information_d">
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="gen_introduction.xml" target="content">Introduction</a></span></div>
+					 <div><a onclick="showhide('structure-What-s_New')"><img id="structure-What-s_New_i" src="img_contract.png" alt="Collapse Node" /><span class="foldertitle">What's New?</span></a>
+						 <div style="display: block;" class="file" id="structure-What-s_New_f">
+							 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="gen_summary.xml" target="content">Summary</a></span></div>
+							 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="gen_changes.xml" target="content">Change Log</a></span></div>
+						 </div>
+					 </div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="gen_about.xml" target="content">About This Document</a></span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="gen_mwg.xml" target="content">MTS Working Group</a></span></div>
+				 </div>
+			 </div>
+			 <div><a onclick="showhide('structure-Themes')"><img id="structure-Themes_i" src="img_contract.png" alt="Expand Node" /><span class="foldertitle">Theme Specifications</span></a>
+				 <div class="file" style="display: block;" id="structure-Themes_f">
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="spec_format.xml" target="content">Format</a></span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="spec_schemes.xml" target="content">Schemes</a></span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="spec_inheritance.xml" target="content">Inheritance</a></span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="spec_languages.xml" target="content">Languages</a></span></div>
+				 </div>
+			 </div>
+			 <div><a onclick="showhide('structure-Plugins')"><img id="structure-Plugins_i" src="img_contract.png" alt="Collapse Node" /><span class="foldertitle">Plugin Specifications</span></a>
+				 <div class="folder" style="display: block;" id="structure-Plugins_d">
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_intro.xml" target="content">Introduction</a></span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_namespaces.xml" target="content">Namespaces</a></span></div>
+					 <div><a onclick="showhide('structure-Plugins_Code')"><img id="structure-Plugins_Code_i" src="img_expand.png" alt="Collapse Node" /><span class="foldertitle">Code</span></a>
+						 <div class="file" id="structure-Plugins_Code_f">
+							 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_code_data.xml" target="content">Data Retrieval</a></span></div>
+							 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_code_events.xml" target="content">Events</a></span></div>
+							 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_code_requirements.xml" target="content">Requirements</a></span></div>
+						 </div>
+					 </div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="plug_xml.xml" target="content">XML</a></span></div>
+				 </div>
+			 </div>
+			 <div><a onclick="showhide('structure-Engines')"><img id="structure-Engines_i" src="img_expand.png" alt="Expand Node" /><span class="foldertitle">Engine Requirements</span></a>
+				 <div class="file" id="structure-Engines_f">
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">Format</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">Language Support</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">Configuration</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">Theme Settings</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">Definitions</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">New Text Document</span></div>
+					 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle">New Text Document</span></div>
+				 </div>
+			 </div>
+			 <div><a onclick="showhide('structure-Element_Reference')"><img id="structure-Element_Reference_i" src="img_contract.png" alt="Collapse Node" /><span class="foldertitle">Element Reference</span></a>
+				 <div class="folder" style="display: block;" id="structure-Element_Reference_d">
+					 <div><a onclick="showhide('structure-Element_Reference-MTS')"><img id="structure-Element_Reference-MTS_i" src="img_contract.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_mts.xml" target="content">MTS</a></span></a>
+						 <div class="folder" style="display: block;" id="structure-Element_Reference-MTS_d">
+							 <div><a onclick="showhide('structure-Element_Reference-MTS-About');"><img id="structure-Element_Reference-MTS-About_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_about.xml" target="content">About</a></span></a>
+								 <div class="file" id="structure-Element_Reference-MTS-About_f">
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_about_name.xml" target="content">Name</a></span></div>
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_about_description.xml" target="content">Description</a></span></div>
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_about_version.xml" target="content">Version</a></span></div>
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_about_url.xml" target="content">URL</a></span></div>
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_about_author.xml" target="content">Author</a></span></div>
+								 </div>
+							 </div>
+							 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme')"><img id="structure-Element_Reference-MTS-Scheme_i" src="img_contract.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme.xml" target="content">Scheme</a></span></a>
+								 <div class="folder" style="display: block;" id="structure-Element_Reference-MTS-Scheme_d">
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-About')"><img id="structure-Element_Reference-MTS-Scheme-About_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_about.xml" target="content">About</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-About_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_about_name.xml" target="content">Name</a></span></div>
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_about_description.xml" target="content">Description</a></span></div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Configuration')"><img id="structure-Element_Reference-MTS-Scheme-Configuration_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_configuration.xml" target="content">Configuration</a></span></a>
+										 <div class="folder" id="structure-Element_Reference-MTS-Scheme-Configuration_d">
+											 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Configuration-Options')"><img id="structure-Element_Reference-MTS-Scheme-Configuration-Options_i" src="img_expand.png" alt="Expand Node" /><span><a href="ref_scheme_configuration_options.xml" target="content" class="foldertitle">Options</a></span></a>
+												 <div class="folder" id="structure-Element_Reference-MTS-Scheme-Configuration-Options_d">
+													 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Configuration-Options-Group')"><img id="structure-Element_Reference-MTS-Scheme-Configuration-Options-Group_i" src="img_expand.png" alt="Expand Node" /><span><a href="ref_scheme_configuration_options_group.xml" target="content" class="foldertitle">Group</a></span></a>
+														 <div class="folder" id="structure-Element_Reference-MTS-Scheme-Configuration-Options-Group_d">
+															 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Configuration-Options-Group-Option')"><img id="structure-Element_Reference-MTS-Scheme-Configuration-Options-Group-Option_i" src="img_expand.png" alt="Expand Node" /><span><a href="ref_scheme_configuration_options_group_option.xml" target="content" class="foldertitle">Option</a></span></a>
+																 <div class="file" id="structure-Element_Reference-MTS-Scheme-Configuration-Options-Group-Option_f">
+																	 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_configuration_options_group_option_item.xml" target="content">Item</a></span></div>
+																 </div>
+															 </div>
+														 </div>
+													 </div>
+												 </div>
+											 </div>
+											 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Configuration-Variables')"><img id="structure-Element_Reference-MTS-Scheme-Configuration-Variables_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_configuration_variables.xml" target="content">Variables</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Configuration-Variables_f">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_configuration_variables_variable.xml" target="content">Variable</a></span></div>
+												 </div>
+											 </div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Fonts')"><img id="structure-Element_Reference-MTS-Scheme-Fonts_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_fonts.xml" target="content">Fonts</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Fonts_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_fonts_font.xml" target="content">Font</a></span></div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Colors')"><img id="structure-Element_Reference-MTS-Scheme-Colors_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_colors.xml" target="content">Colors</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Colors_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_colors_color.xml" target="content">Color</a></span></div>
+										 </div>
+										 <div class="folder" id="structure-Element_Reference-MTS-Scheme-Colors_d">
+											 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Colors-Palette')"><img id="structure-Element_Reference-MTS-Scheme-Colors-Palette_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_colors_palette.xml" target="content">Palette</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Colors-Palette_f">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_colors_palette_rgb.xml" target="content">RGB</a></span></div>
+												 </div>
+											 </div>
+											 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Colors-Nicklist')"><img id="structure-Element_Reference-MTS-Scheme-Colors-Nicklist_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_colors_nicklist.xml" target="content">Nicklist</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Colors-Nicklist_f">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_colors_nicklist_item.xml" target="content">Item</a></span></div>
+												 </div>
+											 </div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Backgrounds')"><img id="structure-Element_Reference-MTS-Scheme-Backgrounds_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_backgrounds.xml" target="content">Backgrounds</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Backgrounds_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_backgrounds_background.xml" target="content">Background</a></span></div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Constants')"><img id="structure-Element_Reference-MTS-Scheme-Constants_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_constants.xml" target="content">Constants</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Constants_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_constants_constant.xml" target="content">Constant</a></span></div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Commands')"><img id="structure-Element_Reference-MTS-Scheme-Commands_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_commands.xml" target="content">Commands</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Commands_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_commands_command.xml" target="content">Command</a></span></div>
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Events')"><img id="structure-Element_Reference-MTS-Scheme-Events_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_events.xml" target="content">Events</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Events_d">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_event.xml" target="content">Event</a></span></div>								
+										 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Events-Dns')"><img id="structure-Element_Reference-MTS-Scheme-Events-Dns_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_events_dns.xml" target="content">DNS</a></span></a>
+											 <div class="file" id="structure-Element_Reference-MTS-Scheme-Events-Dns_d">
+											 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Events-Dns-Resolved')"><img id="structure-Element_Reference-MTS-Scheme-Events-Dns-Resolved_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_events_dns_resolved.xml" target="content">Resolved</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Events-Dns-Resolved_d">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_dns_resolved_header.xml" target="content">Header</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_dns_resolved_line.xml" target="content">Line</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_dns_resolved_footer.xml" target="content">Footer</a></span></div>
+												 </div>
+											 </div>	
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_dns_failed.xml" target="content">Failed</a></span></div>
+											 </div>
+										 </div>	
+											 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Events-Mts')"><img id="structure-Element_Reference-MTS-Scheme-Events-Mts_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_events_mts.xml" target="content">MTS</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Events-Mts_d">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_mts_start.xml" target="content">Start</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_mts_load.xml" target="content">Load</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_events_mts_unload.xml" target="content">Unload</a></span></div>
+												 </div>
+										 	 </div>	
+										 </div>	
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Raws')"><img id="structure-Element_Reference-MTS-Scheme-Raws_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_raws.xml" target="content">Raws</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Raws_d">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_raw.xml" target="content">Raw</a></span></div>
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_whois.xml" target="content">Whois</a></span></div>
+											 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Raws-Whowas')"><img id="structure-Element_Reference-MTS-Scheme-Raws-Whowas_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_raws_whowas.xml" target="content">Whowas</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Raws-Whowas_d">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_whowas_header.xml" target="content">Header</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_whowas_line.xml" target="content">Line</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_whowas_footer.xml" target="content">Footer</a></span></div>
+												 </div>
+										 	 </div>	
+											 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Raws-Names')"><img id="structure-Element_Reference-MTS-Scheme-Raws-Names_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_raws_names.xml" target="content">Names</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Raws-Names_d">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_names_header.xml" target="content">Header</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_names_line.xml" target="content">Line</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_names_footer.xml" target="content">Footer</a></span></div>
+												 </div>
+										 	 </div>	
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_lusers.xml" target="content">Lusers</a></span></div>
+											 <div><a style="cursor: pointer;" onclick="showhide('structure-Element_Reference-MTS-Scheme-Raws-MOTD')"><img id="structure-Element_Reference-MTS-Scheme-Raws-MOTD_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_raws_motd.xml" target="content">MOTD</a></span></a>
+												 <div class="file" id="structure-Element_Reference-MTS-Scheme-Raws-MOTD_d">
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_motd_header.xml" target="content">Header</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_motd_line.xml" target="content">Line</a></span></div>
+													 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_raws_motd_footer.xml" target="content">Footer</a></span></div>
+												 </div>
+										 	 </div>	
+										 </div>
+									 </div>
+									 <div><a onclick="showhide('structure-Element_Reference-MTS-Scheme-Plugins')"><img id="structure-Element_Reference-MTS-Scheme-Plugins_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_scheme_plugins.xml" target="content">Plugins</a></span></a>
+										 <div class="file" id="structure-Element_Reference-MTS-Scheme-Plugins_f">
+											 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_plugins_plugin.xml" target="content">Plugin</a></span></div>
+										 </div>
+									 </div>
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_scheme_preview.xml" target="content">Preview</a></span></div>
+
+								 </div>
+							 </div>
+							 <div><a onclick="showhide('structure-Element_Reference-MTS-Resources')"><img id="structure-Element_Reference-MTS-Resources_i" src="img_expand.png" alt="Expand Node" /><span><a class="foldertitle" href="ref_resources.xml" target="content">Resources</a></span></a>
+								 <div class="file" id="structure-Element_Reference-MTS-Resources_f">
+									 <div><img src="img_document.png" alt="Load Information" /><span class="foldertitle"><a href="ref_resources_resource.xml" target="content">Resource</a></span></div>
+								 </div>
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+	</div>
+	</div>
+	</td>
+	<td valign="top">
+	<iframe name="content" scrolling="no" src="gen_introduction.xml" marginwidth="0" marginheight="0" frameborder="0" width="100%" height="2500"/> 
+	</td>
+	</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;item&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines menu items for option tags with a type of 'menu'.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per option.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="label" required="Yes" defaultvalue="N\A" datatype="Text" evaluated="No">The caption text for the item.</attribute>
+			<attribute name="value" required="Yes" defaultvalue="N\A" datatype="Text" evaluated="No">The value of the item as used by the engine.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When settings are applied, the variable defined in the parent option should be set to the value of the selected item.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<item value="hh:nn" label="12 hour format"/>
+ <item value="HH:nn" label="24 hour format"/>
+]]>
+		</example>
+	</section>
+</page>

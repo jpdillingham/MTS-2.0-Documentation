@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Introduction</title>
+	<section>
+		<title>The MTS Concept</title>
+		<paragraph>MTS, or mIRC Theme Standard, is comprised of two basic parts; an "engine", or script that interprets and displays theme information, and a "theme", a file that describes how an engine should display information.</paragraph>
+		<paragraph>The MTS standard itself is simply a "language" that the engine and theme use to communicate.  MTS is used in the engine to determine where information is located, and how to interpret and change the theme information into something that can be displayed in mIRC.  Themes use MTS to make their information available to the engine and control various aspects of how the information is to be displayed.</paragraph>
+	</section>
+	<section>
+		<title>The MTS Working Group</title>
+		<paragraph>The MTS Working Group is a group of mIRC users and enthusiasts that recognized the need for an update to the MTS standard.</paragraph>
+		<paragraph>All MTS development and discussion, both past and present, takes place on the forums located at the link below.  Access to these forums is completely open to the public and there is no need to register to read them. If you wish to participate, however, you will need to register an account.  Registration is encouraged, even if you do not plan on taking an active role in development.</paragraph>
+		<paragraph>There are currently 9 active members of the MTS Working Group.</paragraph>
+		<link>http://www.mircthemes.com</link>
+	</section>
+	<section>
+		<title>Why Is A Theme Standard For mIRC Needed?</title>
+		<paragraph>Before the advent of MTS 1.0, scripters in the mIRC community generally developed their own standards for usage in their own scripts.  These standards varied greatly in the amount of customization they supported and the way in which they supported it.</paragraph>
+		<paragraph>The problem with these theme systems was that they were generally incompatible with one another.  If "themer_XYZ" created a theme to use with "ABCScript", the theme would only work on ABCScript, meaning the number of people who would benefit from themer_XYZ's hard work would be much lower than if the theme could be used on all scripts, or all copies of mIRC for that matter.  This would also mean that if someone were to see themer_XYZ's theme and wish to use it, they would need to use the script that it was developed for.</paragraph>
+		<paragraph>With a standard for mIRC themes, themer_XYZ can develop a theme that can be used by anyone using a standard-compliant script or addon.  This means that themer_XYZ's theme could be used by a far greater portion of the mIRC community; Anyone wishing to use themer_XYZ's theme could do so, provided the script they were using supported the standard.  This allows users to move from script to script and take their favorite theme with them.</paragraph>
+		<paragraph>An mIRC theme standard benefits more than just themer_XYZ.  Because a themer's work would be more widely used and appreciated, themers would be more inclined to make themes.  This benefits the mIRC community in two ways; people who like to make themes will get more recognition and thus enjoyment from their work, and people who like to use themes will have more themes to use.</paragraph>
+	</section>
+	<section>
+		<title>Where Do I Start?</title>
+		<paragraph>A good place to start is to read the documentation.</paragraph>
+		<paragraph>General rules and guidelines for theme creation may be found under the "Theme Specifications" heading.  The sections under this heading are laid out in a general to specific manner.  In order to ease comprehension of these topics, you should read them as they are presented, from top to bottom.</paragraph>
+		<paragraph>Guidelines and information for MTS plugins are found under the "Plugin Specifications" heading.  This section contains all the information you need to create an MTS compliant plugin.</paragraph>
+		<paragraph>Requirements of an MTS 2.0 theme engine are found under the "Engine Requirements" heading.  This section contains information about what your engine needs to do to conform to the MTS 2.0 standard.  Engine developers should first read the topics located under the "Theme Specifications" heading (in addition to the "Engine Requirements" heading) before attempting to create an engine.  Failure to do so may result in missed information or concepts and would likely result in a non-compliant engine.</paragraph>
+		<paragraph>Detailed specifications for each XML element (also known as a "tag") used in an MTS 2.0 theme file can be found under the "Element Reference" heading.  The structure of the topics under this heading are identical to the way they should appear in a theme's XML file.  Refer to this section often as you create themes or as you are developing an engine to ensure compliance to the MTS 2.0 standard.</paragraph>
+	</section>
+
+</page>

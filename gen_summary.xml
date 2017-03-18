@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Summary</title>
+	<section>
+		<title>MTS 2.0.Alpha.2</title>
+		<paragraph>This is the second Alpha release of the MTS documentation.  Because it is still in an Alpha version, summary information is limited to the contents of the Change Log section</paragraph>
+	</section>
+	<section>
+		<title>MTS 2.0.Alpha.1</title>
+		<paragraph>Because this is the first public release, there is no change summary.</paragraph>
+	</section>
+</page>

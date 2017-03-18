@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;command&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines output for various local commands.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Keyword">The name of the event.</attribute>
+			<attribute name="type" required="No" evaluated="No" defaultvalue="N\A" datatype="Keyword">The type of event. Only required if parent 'events' type attribute is not set.</attribute>
+			<attribute name="color" required="No" evaluated="Yes" defaultvalue="'normal text' color" datatype="Numeric">The color to be used when the engine /echos the data.</attribute>
+			<attribute name="indent" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The amount of indent the engine should use when the data is wrapped.</attribute>
+			<attribute name="target" required="No" evaluated="Yes" defaultvalue="active" datatype="Mixed">The window in which the data should be displayed.  May be a window name or a keyword (see below) and multiple keywords may be used.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="name">
+			<keyword name="input">Referenced when text is input through an editbox</keyword>
+			<keyword name="action">Referenced when /me and /describe are used</keyword>
+			<keyword name="notice">Referenced when a /notice command is sent</keyword>
+			<keyword name="message">Referenced when the /msg command is used (reverts to "text" if the target is an open channel or query)</keyword>
+			<keyword name="ctcp">Referenced when a /ctcp command is used</keyword>
+			<keyword name="ctcpreply">Referenced when a /ctcpreply is sent</keyword>
+			<keyword name="channel">Referenced when the /channel command is sent</keyword>
+			<keyword name="invite">Referenced when the /invite command is used (only used with type 'private')</keyword>
+			<keyword name="opnotice">Referenced when the /onotice command is used (only used with type 'channel')</keyword>
+			<keyword name="opmessage">Referenced when the /omsg command is used (only used with type 'channel')</keyword>
+			<keyword name="dns">Referenced when a /dns command is issued (only used with type 'dns')</keyword>
+			<keyword name="hop">Referenced when a /hop command is issued (only used with type 'channel')</keyword>
+			<keyword name="connect">Referenced when a connection to a server is initiated (only used with type 'server')</keyword>
+		</keywords>
+		<keywords attribute="type">
+			<keyword name="channel">Specified when the target of a command is a channel</keyword>
+			<keyword name="private">Specified when the target of a command is a query or and individual</keyword>
+			<keyword name="dns">Specified when the command is a /dns request</keyword>
+		</keywords>
+		<keywords attribute="target">
+			<keyword name="active">Sends output to the active window, regardless of which connection triggered the output</keyword>
+			<keyword name="activechannels">Sends output to all channels on the active connection</keyword>
+			<keyword name="localchannels">Sends output to all channels on the connection where the output was triggered</keyword>
+			<keyword name="globalchannels">Sends output to all channels on all connections</keyword>
+			<keyword name="activestatus">Sends output to the status window of the active connection</keyword>
+			<keyword name="localstatus">Sends output to the status window of the connection that triggered the output</keyword>
+			<keyword name="globalstatus">Sends output to all status windows</keyword>
+			<keyword name="allactive">Sends output to the status window and all channels of the active connection</keyword>
+			<keyword name="alllocal">Sends output to the status window and all channels on the connection that triggered the output</keyword>
+			<keyword name="allglobal">Sends output to all channel and status windows</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Plain text, mIRC control codes, identifiers and constant keywords.  The target of a command is generally $1 and the text or message is $2-.</paragraph>
+		<paragraph>Multiple lines may be used and will be displayed as individual lines.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When the parent 'command' tag has the type attribute set, all 'command' elements should be assumed to have the same type, unless otherwise specified in the element's type attribute.</paragraph>
+		<paragraph>When the 'message' command is defined and the user sends a /msg command to a channel or nickname, the engine should first check to see if the user is on the channel and if a query window is open.  If not, the 'message' element should be used to output text and the target should be processed normally.  If the user is on the target channel or the target query is open, the engine should display the command as if it were entered through the editbox.</paragraph>
+		<paragraph>The engine should check the target of a command ($1) to see if it contains the @ symbol, indicating that it is an opmessage or opnotice.  The engine should treat these commands the same way it treats /omsg and /onotice.</paragraph>
+		<paragraph>The engine should alias the /channel command to halt it's default "Retrieving #channel info" output and substitute the theme's output, if specified.</paragraph>
+		<paragraph>Normal processing rules apply to commands the same way they do to events.  The color, indent and target attributes should be evaluated and inserted into the /echo command in the proper place.  When a keyword is used in the target attribute, the engine should process the keyword as specified (see the "Keywords" section for the target attribute).</paragraph>
+		<paragraph>Multiple lines should be displayed as individual lines, each with the specified settings defined in the color, indent and target attributes.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Simple declaration"><![CDATA[<command name="dns" type="dns">*** Attempting to resolve $1- $+ ...</command>]]></example>
+		<example title="Complex declaration">
+ <![CDATA[<command 
+	name="input" 
+	type="channel" 
+	color="4" 
+	target="active,@messages" 
+	indent="$len($me)"
+ >
+	[ $+ $me $+ ]: $1-
+ </command>]]>
+		</example>
+	</section>
+</page>

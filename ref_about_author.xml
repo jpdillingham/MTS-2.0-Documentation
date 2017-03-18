@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;author&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element contains the name of the theme's author.  If there are multiple authors, multiple author elements should be used for each.</paragraph>
+		<paragraph>This element is required and may appear one or more times.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="email" datatype="Text" required="No" evaluated="No" defaultvalue="N\A">The author's email address.</attribute>
+			<attribute name="url" datatype="Text" required="No" evaluated="No" defaultvalue="N\A">The author's website URL.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Plain text.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>There may be multiple authors in one theme.  Each author should be credited anywhere the author name is displayed.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<author email="bluto@popeye.net" url="http://popeye.net">bluto</author>
+ <author email="user@email.com" url="http://www.homepage.com">A. User</author>]]>
+		</example>
+	</section>
+</page>

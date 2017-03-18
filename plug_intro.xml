@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Introduction</title>
+	<section>
+		<title>Overview</title>
+		<paragraph>Plugins are an entirely new concept to the MTS format.  With the addition of plugins, themers and scripters can create "MTS enabled" addons and scripts.  In turn, themers can create themes that have extra information in them that is used to interact with these addons and scripts.</paragraph>
+		<paragraph>It may be helpful to think of a plugin as an unofficial extension to the MTS format.  By adding XML definitions to a theme file, themers can extend the capabilities of their themes into other areas of mIRC, such as custom toolbar configurations and icons, script notifications and more.</paragraph>
+		<paragraph>In its basic form, a plugin is nothing more than a "communication" between an MTS engine, a theme and another piece of mIRC code.</paragraph>
+	</section>
+	<section>
+		<title>Namespaces</title>
+		<paragraph>Each plugin is required to have a unique namespace.  An XML namespace is basically an extension of XML that is used to avoid conflicts between element names.  MTS plugins are an ideal application of this concept, allowing plugin authors to use whatever XML they wish without having to worry about other plugins or the rest of the MTS specification.</paragraph>
+		<paragraph>To learn more about namespaces, see the "Namespaces" section.</paragraph>
+	</section>
+	<section>
+		<title>Plugin Code</title>
+		<paragraph>The first part of an MTS plugin is the plugin code.  This is the part of the plugin that retrieves and applies the settings contained in the theme file.</paragraph>
+		<paragraph>For more information about the requirements of your plugin code and a description of the events and identifers that are available to you, see the "Code" section.</paragraph>
+	</section>
+	<section>
+		<title>Plugin XML</title>
+		<paragraph>The second part of a plugin is standardized XML.  In order for your plugin to be able to retrieve data from a theme file, you need to know what elements (tags) the data is stored in and the overall structure that is used.</paragraph>
+		<paragraph>The plugin author is responsible for creating this XML structure and should fully document the syntax so that themers can provide support for the plugin.</paragraph>
+		<paragraph>For the syntax rules related to this XML, see the "XML" section.</paragraph>
+	</section>
+</page>

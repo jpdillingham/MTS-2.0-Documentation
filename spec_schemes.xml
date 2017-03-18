@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>Schemes</title>
+	<section>
+		<title>What are Schemes?</title>
+		<paragraph>MTS 2.0 themes are composed of schemes. Each scheme contains theme information, specific for that scheme. There is not "global" theme information, outside a scheme.</paragraph>
+		<paragraph>All the schemes in one theme usually portray the same general style, but each scheme might have certain differences, such as colors or fonts.</paragraph>
+	</section>
+	<section>
+		<title>Basic Format</title>
+		<paragraph>All scheme tags lie inside the root 'mts' element.</paragraph>
+		<example title="Basic Scheme Format">
+ <![CDATA[<mts>
+	 <scheme id="my_scheme">
+		 ...
+	 </scheme>
+	 <scheme id="another_scheme">
+		 ...
+	 </scheme>
+ </mts> ]]>
+		</example>
+	</section>
+	<section>
+		<title>Default Schemes</title>
+		<paragraph>Themes have a default scheme, which will be the scheme that is first loaded when you load a theme. The default scheme in a theme will be the first scheme in the theme file, or the scheme specified in the 'defaultScheme' attribute of the 'mts' tag (if specified).</paragraph>
+		<example title="First Scheme">
+ <![CDATA[<mts>
+	 <scheme id="default_scheme"> <!-- this will be the theme's default scheme. -->
+		 ...
+	 </scheme>
+	 <scheme id="another_scheme">
+		 ...
+	 </scheme>
+ </mts>]]>
+		</example>
+		<example title="'defaultScheme' Attribute">
+ <![CDATA[<mts defaultScheme="default_scheme">
+	<scheme id="another_scheme"> <!-- this won't be the default scheme, even though it is the first scheme. -->
+		 ...
+	</scheme>
+	<scheme id="default_scheme"> <!-- this will be the theme's default scheme. -->
+		 ...
+	</scheme>
+ </mts>]]>
+		</example>
+	</section>
+</page>

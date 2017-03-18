@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;preview&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines a block of text to be used in a preview for the scheme.</paragraph>
+		<paragraph>This element is optional and may appear one time per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="encoded" defaultvalue="false" required="No" evaluated="No" datatype="Boolean">True or false depending on whether the data has been MIME-encoded.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Plain text.  mIRC identifiers are not evaluated and constant keywords will be replaced.</paragraph>
+		<paragraph>When 'encoded' is set to "true", each line of the preview data must be MIME-encoded.  When MIME-encoded data is specified, constant keywords may not be used.</paragraph>
+		<paragraph>The body of the preview data must be contained within a CDATA tag (see examples).</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The engine should read each line and display them independently.  Inheritance rules should be applied so that the correct font and colors are used.  Constant keywords must also be applied when the data is not encoded.</paragraph>
+		<paragraph>When 'encoded' is set to "true" the engine should use $decode() to decode each individual line.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Plain declaration (with nesting syntax)">
+ <![CDATA[<mts>
+	<scheme>
+		<preview>
+			<![CDATA[
+				\k7ù\k0í\k7ù\k15 \k11publicenemy ... has joined #scripts
+				\k7ù\k0í\k7ù\k15 \k0BitchX\k15: join to #scripts was synched in 3.02s!!
+				\k7ù\k0í\k7ù\k15 \k15Topic \k14(\k10#scripts\k14):\k15 mIRC 6.16 is out!
+				\k7ù\k0í\k7ù\k15 \k15Topic \k14(\k10#scripts\k14):\k15 set by...
+				\k14[\k12ÿpublicene\k14] \k14[\k12\k11@\k12techg0d\k14]
+				\k7ù\k0í\k7ù\k15 \k14[\k9Users\k14(\k03#scripts\k14:\k032\k14)]
+				\k7ù\k0í\k7ù\k15 \k0BitchX\k15: IAL for #scripts updated
+				\k7ù\k0í\k7ù\k15 \k07ServerMode\k14/\k10#scripts ... irc.chatstop.net
+			] ]>
+		</preview>
+	</scheme>
+ </mts>]]>
+		</example>
+		<example title="Encoded declaration (with nesting syntax)">
+ <![CDATA[<mts>
+	<scheme>
+		<preview encoded="true">
+			<![CDATA[
+				eJwFwcEKwjAMANB7of/QLxhuR6 ... niSAykM2bEZldVottI0n6/773EFRNNc
+				rTmndLeSuoH9r8YM2G8lX6+d4a ... jxqp+PMKNKfJa3DllFCiXeYRF277D
+				dF/c0B3ccrqCEmWBGYUaB3TTWt ... IDIFyxqCJ6qvvGKVEtuYP13Yt+A==
+			] ]>
+		</preview>
+	</scheme>
+ </mts>]]>
+		</example>
+	</section>
+</page>

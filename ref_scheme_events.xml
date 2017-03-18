@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;events&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for event declarations.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="type" required="No" datatype="Keyword" defaultvalue="N\A" evaluated="No">The type of events located in the child event elements</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="type">
+			<keyword name="channel">Indicates that the event occurs in a channel</keyword>
+			<keyword name="private">Indicates that the event occurs in a query or is otherwise directed specifically to the user</keyword>
+			<keyword name="server">Indicates that the event is triggered by the server</keyword>
+			<keyword name="local">Indicates that the event is triggered locally</keyword>
+			<keyword name="dns">Indicates that the event is part of a DNS lookup</keyword>
+			<keyword name="mts">Indicates that the event is triggered by the MTS engine</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When the type attribute is specified, all child 'event' tags should be assumed to have the same type.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Nesting syntax">
+ <![CDATA[<mts>
+	<scheme>
+		<events type="channel">
+			<event ..> ... </event>
+		</events>
+		<events type="server">
+			<event ..> ... </event>
+		</events>
+		<dns>
+			...
+		</dns>
+	</scheme>
+ </mts> ]]>
+		</example>
+	</section>
+</page>

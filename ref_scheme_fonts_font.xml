@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;font&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element allows users to specify fonts to be used in various windows.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="window" required="No" evaluated="No" defaultvalue="all" datatype="Keyword">The window the font should be applied to.</attribute>
+			<attribute name="font" required="No" evaluated="Yes" defaultvalue="current font" datatype="Text">The name of the font to be used.</attribute>
+			<attribute name="size" required="No" evaluated="Yes" defaultvalue="current font size" datatype="Numeric">The size of the font.</attribute>
+			<attribute name="bold" required="No" evaluated="Yes" defaultvalue="false" datatype="Boolean">Whether or not the font should be bolded.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="window">
+			<keyword name="all">Indicates that the font should be applied to all windows</keyword>
+			<keyword name="channel">Indicates that the font should be applied to all channel windows</keyword>
+			<keyword name="query">Indicates that the font should be applied to all query, DCC chat and the dedicated query window</keyword>
+			<keyword name="status">Indicates that the font should be applied to all status windows</keyword>
+			<keyword name="finger">Indicates that the font should be applied to the finger window</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>When the 'window' attribute is set to 'all', the engine should use /font -z to change the font for all windows to the specified font.</paragraph>
+		<paragraph>Otherwise, the engine should attempt to change the font for the specified window type with the /font command if a window of that type is open.  Otherwise, the engine should write the font information to mirc.ini or find some other way to apply the font.</paragraph>
+		<paragraph>The engine should use the /font command to apply font settings in the order they appear in the theme file.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<font window="all" font="Tahoma" size="-9" bold="false"/>]]>
+		</example>
+	</section>
+</page>

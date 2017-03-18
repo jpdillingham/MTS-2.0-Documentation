@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;footer&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines output for the end of an MOTD listing.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="color" required="No" evaluated="Yes" defaultvalue="normal text color" datatype="Numeric">The color to be used when the engine /echos the data.</attribute>
+			<attribute name="indent" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The amount of indent the engine should use when the data is wrapped.</attribute>
+			<attribute name="target" required="No" evaluated="Yes" defaultvalue="status" datatype="Mixed">The window in which the data should be displayed.  May be a window name or a keyword (see below) and multiple keywords may be used.</attribute>
+			<attribute name="sound" required="No" evaluated="No" defaultvalue="N\A" datatype="Resource">The name of the resource sound file to be played when this element is triggered.</attribute>
+			<attribute name="halted" required="No" evaluated="Yes" defaultvalue="false" datatype="Boolean">Whether or not the engine should halt output of this element.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="target">
+			<keyword name="active">Sends output to the active window, regardless of which connection triggered the output</keyword>
+			<keyword name="activechannels">Sends output to all channels on the active connection</keyword>
+			<keyword name="localchannels">Sends output to all channels on the connection where the output was triggered</keyword>
+			<keyword name="globalchannels">Sends output to all channels on all connections</keyword>
+			<keyword name="activestatus">Sends output to the status window of the active connection</keyword>
+			<keyword name="localstatus">Sends output to the status window of the connection that triggered the output</keyword>
+			<keyword name="globalstatus">Sends output to all status windows</keyword>
+			<keyword name="allactive">Sends output to the status window and all channels of the active connection</keyword>
+			<keyword name="alllocal">Sends output to the status window and all channels on the connection that triggered the output</keyword>
+			<keyword name="allglobal">Sends output to all channel and status windows</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Text, mIRC control codes and identifiers and constant keywords.</paragraph>
+		<paragraph>Multiple line entries are supported and will be displayed as individual lines.</paragraph>
+		<paragraph>The $mts.motd() identifier may be referenced within this tag.  The arguments and returned data are listed below.</paragraph>
+		<identifiers>
+			<identifier name="$mts.motd(date)">Returns the date the MOTD was last modified</identifier>
+			<identifier name="$mts.motd(time)">Returns the time the MOTD was last modified</identifier>
+		</identifiers>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The engine should evaluate and display the data contained in this tag when an MOTD is finished listing.  The engine should then discard any stored information.</paragraph>
+		<paragraph>The color, indent and target attributes should be evaluated and inserted into the /echo command in the proper place. When a keyword is used in the target attribute, the engine should process the keyword as specified (see the "Keywords" section for the target attribute).</paragraph>
+		<paragraph>Multiple lines should be displayed individually, each line retaining the settings specified in the color, indent and target attributes.</paragraph>
+		<paragraph>If the halted attribute is set to true, the engine should evaluate the text contained within the raw but NOT display it.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration">
+ <![CDATA[<footer color="14" target="activestatus,active">-----------( end of /MoTD )---------</footer>]]>
+		</example>
+	</section>
+</page>

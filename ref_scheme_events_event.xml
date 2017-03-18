@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;event&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines output for various events.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="name" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Keyword">The name of the event.</attribute>
+			<attribute name="type" required="No" evaluated="No" defaultvalue="N\A" datatype="Keyword">The type of event. Only required if parent 'events' type attribute is not set.</attribute>
+			<attribute name="color" required="No" evaluated="Yes" defaultvalue="event default" datatype="Numeric">The color to be used when the engine /echos the data.</attribute>
+			<attribute name="indent" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">The amount of indent the engine should use when the data is wrapped.</attribute>
+			<attribute name="target" required="No" evaluated="Yes" defaultvalue="event default" datatype="Mixed">The window in which the data should be displayed.  May be a window name or a keyword (see below) and multiple keywords may be used.</attribute>
+			<attribute name="sound" required="No" evaluated="No" defaultvalue="N\A" datatype="Resource">The name of the resource sound file to be played when the event is triggered.</attribute>
+			<attribute name="halted" required="No" evaluated="Yes" defaultvalue="false" datatype="Boolean">Whether or not the engine should halt output for this event.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Keywords</title>
+		<keywords attribute="name">
+			<keyword name="text">Text message; valid with type 'channel' or 'private'</keyword>
+			<keyword name="action">Action; valid with type 'channel' or 'private'</keyword>
+			<keyword name="notice">Notice;  valid with type 'channel', 'private' or 'server'</keyword>
+			<keyword name="ctcp">CTCP message; valid with type 'channel' or 'private'</keyword>
+			<keyword name="ctcpreply">CTCP reply; valid with type 'channel' or 'private'</keyword>
+			<keyword name="join">Channel join; valid with type 'channel' and 'local' (when you join a channel)</keyword>
+			<keyword name="part">Channel part</keyword>
+			<keyword name="quit">Quit; valid with type 'channel' only.</keyword>
+			<keyword name="nick">Nickname change; valid with type 'channel' and 'local' (when your nickname changes)</keyword>
+			<keyword name="kick">Channel kick; valid with type 'channel' and 'local' (when you are kicked)</keyword>
+			<keyword name="mode">Channel mode change; valid with type 'channel' only.</keyword>
+			<keyword name="topic">Channel topic change</keyword>
+			<keyword name="invite">Invitation to a channel; valid with type 'private'</keyword>
+			<keyword name="usermode">Local usermode change</keyword>
+			<keyword name="wallops">Server wallops</keyword>
+			<keyword name="notify">Notification that a user has connected to IRC; valid with type 'server' only.</keyword>
+			<keyword name="unotify">Notification that a user has left IRC; valid with type 'server' only.</keyword>
+			<keyword name="error">Server error message</keyword>
+			<keyword name="connect">Connection to server established (sent after logon); valid with type 'server'</keyword>
+			<keyword name="disconnect">Connection to server terminated; valid with type 'server'</keyword>
+			<keyword name="logon">Connection to server initiated but not authenticated (the 'on logon' event); valid with type 'server'</keyword>
+		</keywords>
+		<keywords attribute="type">
+			<keyword name="channel">Indicates that the event occurs in a channel</keyword>
+			<keyword name="private">Indicates that the event occurs in a query or is otherwise directed specifically to the user</keyword>
+			<keyword name="server">Indicates that the event is triggered by the server</keyword>
+			<keyword name="local">Indicates that the event is triggered locally</keyword>
+		</keywords>
+		<keywords attribute="target">
+			<keyword name="active">Sends output to the active window, regardless of which connection triggered the output</keyword>
+			<keyword name="activechannels">Sends output to all channels on the active connection</keyword>
+			<keyword name="localchannels">Sends output to all channels on the connection where the output was triggered</keyword>
+			<keyword name="globalchannels">Sends output to all channels on all connections</keyword>
+			<keyword name="activestatus">Sends output to the status window of the active connection</keyword>
+			<keyword name="localstatus">Sends output to the status window of the connection that triggered the output</keyword>
+			<keyword name="globalstatus">Sends output to all status windows</keyword>
+			<keyword name="allactive">Sends output to the status window and all channels of the active connection</keyword>
+			<keyword name="alllocal">Sends output to the status window and all channels on the connection that triggered the output</keyword>
+			<keyword name="allglobal">Sends output to all channel and status windows</keyword>
+		</keywords>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>Text, mIRC control codes and identifiers and constant keywords.</paragraph>
+		<paragraph>Multiple line entries are supported and will be displayed as individual lines.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The color, indent and target attributes should be evaluated and inserted into the /echo command in the proper place. When a keyword is used in the target attribute, the engine should process the keyword as specified (see the "Keywords" section for the target attribute).</paragraph>
+		<paragraph>Multiple lines should be displayed individually, each line retaining the settings specified in the color, indent and target attributes.</paragraph>
+		<paragraph>If the halted attribute is set to true, the engine should evaluate the text contained within the event but NOT display it.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Simple declaration">
+ <![CDATA[<event type="channel" name="join">Joins: $nick ( $+ $address $+ )</event>]]>
+		</example>
+		<example title="Complex declaration">
+ <![CDATA[<event 
+	type="channel" 
+	name="join"
+	color="$mts.variable(joincolor)"
+	indent="$len($nick)"
+	target="activestatus,$+(@customwindow.,$chan)"
+	sound="myscheme.join.sound"
+	halted="false"
+ >
+	Joins: $nick ( $+ $address $+ )
+ </event>]]>
+		</example>
+	</section>
+</page>

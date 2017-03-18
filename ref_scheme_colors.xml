@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;colors&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element is a container for color information.</paragraph>
+		<paragraph>This element is optional and may appear only once per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="list" required="No" evaluated="Yes" defaultvalue="N\A" datatype="Numeric">A list of color indexes, separated by commas.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>This element contains no textual data.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>The values specified in the 'list' attribute are in the following order and should be applied accordingly: "Background, Action text, CTCP text, Highlight text, Info text, Info2 text, Invite text, Join text, Kick text, Mode text, Nick text, Normal text, Notice text, Notify text, Other text, Own text, Part text, Quit text, Topic text, Wallops text, Whois text, Editbox, Editbox text, Listbox, Listbox text, Inactive, Grayed text, Title text"</paragraph>
+		<paragraph>When a list of values is specified, any children "color" tags will override the appropriate position in the list.</paragraph>
+		<paragraph>If an incomplete list has been specified (or no list at all), the engine should revert the colors to "mIRC Classic" (default colors) and should not attempt to apply the partial list.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Using a tokenized list"><![CDATA[<colors list="1, 15, 3, ... 12"> ]]></example>
+		<example title="Nesting syntax">
+ <![CDATA[<mts>
+	<scheme>
+		<colors>
+			<color>..</color>
+			<palette>
+				<rgb .../>
+			</palette>
+		</colors>
+	</scheme>
+ </mts> ]]>
+		</example>
+	</section>
+</page>

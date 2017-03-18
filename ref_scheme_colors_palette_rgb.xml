@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="content.xsl"?>
+<page>
+	<title>&lt;rgb&gt;</title>
+	<section>
+		<title>Description</title>
+		<paragraph>This element defines the RGB values used in mIRC's internal 16 color palette.</paragraph>
+		<paragraph>This element is optional and may appear one or more times per scheme.</paragraph>
+	</section>
+	<section>
+		<title>Attributes</title>
+		<attributes>
+			<attribute name="index" required="Yes" evaluated="No" defaultvalue="N\A" datatype="Numeric">The index of the color.</attribute>
+		</attributes>
+	</section>
+	<section>
+		<title>Data</title>
+		<paragraph>An RGB value in 'R,G,B' or 'RGB' (long format) format.</paragraph>
+	</section>
+	<section>
+		<title>Engine Requirements</title>
+		<paragraph>If a list of values has been specified in the 'list' attribute of the 'palette' element, the engine should apply the list first, then apply the individual 'rgb' elements.</paragraph>
+		<paragraph>If an RGB value has not been specified. either as part of a list or individually, the engine should revert it to the "mIRC Classic" (default) color.</paragraph>
+	</section>
+	<section>
+		<title>Examples</title>
+		<example title="Declaration"><![CDATA[<rgb index="4">255,0,0</rgb> ]]></example>
+	</section>
+</page>
